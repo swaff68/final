@@ -101,6 +101,22 @@
                   <input type="text" class="form-control" id="phone-number" placeholder="703-867-5309">
                 </div>
               </div>
+             
+              <div class="form-group">
+                <label for="input-street" class="col-sm-2 control-label">Address:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="street" placeholder="# & Street">
+                </div>
+                <label for="input-city" class="col-sm-2 control-label"></label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="city" placeholder="City">
+                </div>
+                <label for="input-zip" class="col-sm-2 control-label"></label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="zip" placeholder="Zip Code">
+                </div>
+              </div>
+
             <label for="aid-type-label" class="cl1 control-label">Requested Aid Type:</label>
 
               <div class="fg1 form-group">
@@ -178,8 +194,12 @@
                 </div>
               </div>
               <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                  <button type="submit" class="aid-request-btn btn-success btn btn-default">Submit Aid request</button>
+                <div class="col-sm-offset-1 col-sm-5">
+                  <button type="submit" class="aid-request-btn btn-success btn btn-default">Submit Aid Request</button>
+                </div>
+            
+                <div class="col-sm-offset-1 col-sm-5">
+                  <button type="submit" class="aid-request-btn btn-danger btn btn-default">Cancel Aid Request</button>
                 </div>
               </div>
             </form>
