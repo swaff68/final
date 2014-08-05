@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Nightingale</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link href="../styles/main.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+
+
+                <li class="sidebar-brand">
+                    
+                        Disaster Event
+
+                    
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-pencil-square-o fa-2x"></i>
+                    Request Aid</a>
+                </li>
+                <li>
+                    <a href="#">
+                    <i class="fa fa-pencil-square-o fa-2x"></i>
+                    Contribute</a>
+                </li>
+                <li>
+                    <a href="#">
+                    <i class="fa fa-bar-chart-o fa-2x"></i> 
+                    Relief Status</a>
+                </li>
+
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row header-row">
+                    <div class="col-lg-12">
+                        <img class="ngale-img"src="../pics/ngale.png"></img>
+                        <h1>Nightingale - Collaborating to bring disaster relief to those in need </h1>
+                        <p class="byline">This site provides a means to contribute aid to those who have been adversely affected by a natural disaster.</p>
+                        <p class="byline2">If you are "in need" or if you would like to "contribute" to those in need, please begin by using the <span class="bcolor">menu </span> to the left. </p>
+                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                    </div>
+                </div>
+            </div>
+                <form class=" form-hor1 form-horizontal" role="form">
+              <div class="form-group">
+                <label for="input-first-name" class="col-sm-2 control-label">First Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="first-name" placeholder="John">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="input-last-name" class="col-sm-2 control-label">Last Name</label>
+                <div class="col-sm-10">
+                  <input type="password" class="form-control" id="last-name" placeholder="Smith">
+                </div>
+              </div>
+             <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-10">
+                  <input type="email" class="form-control" id="inputEmail3" placeholder="john.smith@gmail.com">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="input-phone" class="col-sm-2 control-label">Phone#</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="phone-number" placeholder="703-867-5309">
+                </div>
+              </div>
+            <label for="aid-type-label" class="cl1 control-label">Requested Aid Type:</label>
+
+              <div class="fg1 form-group">
+                <div class="col-sm-offset-1 col-sm-11">
+                  <div class="checkbox rat">
+                    <label>
+                      <input type="checkbox"> Water
+                    </label>
+                    
+                  <input type="text" class="ratfc form-control " id="water-quantity" placeholder="#bottles">
+                  <textarea class=" ratta form-control" rows="3" placeholder="notes"></textarea>
+                  </div>
+                  </div>
+                </div>
+                <div class="fg1 form-group">
+                <div class=" col-sm-offset-1 col-sm-11">
+                  <div class="checkbox rat">
+                    <label>
+                      <input type="checkbox"> Meals
+                    </label>
+                    
+                  <input type="text" class="ratfc form-control " id="water-quantity" placeholder="#meals">
+                  <textarea class=" ratta form-control" rows="3" placeholder="dietary/allergies/notes"></textarea>
+                  </div>
+                </div>
+              </div>
+
+                <div class="fg1 form-group">
+                <div class="col-sm-offset-1 col-sm-11">
+                  <div class="checkbox rat">
+                    <label>
+                      <input type="checkbox"> Lodging
+                    </label>
+                    
+                  <input type="text" class="ratfc form-control " id="water-quantity" placeholder="#persons">
+                  <textarea class=" ratta form-control" rows="3" placeholder="#males/females/notes"></textarea>
+                  </div>
+                  </div>
+                </div>
+                <div class="fg1 form-group">
+                <div class="col-sm-offset-1 col-sm-11">
+                  <div class="checkbox rat">
+                    <label>
+                      <input type="checkbox"> Pets/Boarding
+                    </label>
+                    
+                  <input type="text" class="ratfc form-control " id="water-quantity" placeholder="#pets">
+                   <textarea class=" ratta form-control" rows="3" placeholder="#per pet type/notes"></textarea>
+                  </div>
+                </div>
+              </div>
+
+                <div class="fg1 form-group">
+                <div class="col-sm-offset-1 col-sm-11">
+                  <div class="checkbox rat">
+                    <label>
+                      <input type="checkbox"> Transportation
+                    </label>
+                    
+                  <input type="text" class="ratfc form-control " id="water-quantity" placeholder="#persons">
+                   <textarea class=" ratta form-control" rows="3" placeholder="how often?/to where?/notes"></textarea>
+                  </div>
+                </div>
+                </div>
+                <div class="fg1 form-group">
+                <div class="col-sm-offset-1 col-sm-11">
+                  <div class="checkbox rat">
+                    <label>
+                      <input type="checkbox"> Clothes
+                    </label>
+                    
+                  <input type="text" class="ratfc form-control " id="water-quantity" placeholder="#persons">
+                   <textarea class=" ratta form-control" rows="3" placeholder="#adult males,females/# children male,female/notes"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="aid-request-btn btn-success btn btn-default">Submit Aid request</button>
+                </div>
+              </div>
+            </form>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery Version 1.11.0 -->
+    <script src="js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>
