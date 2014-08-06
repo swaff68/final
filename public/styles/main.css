@@ -27,6 +27,11 @@ html, body{
 	font-style: italic;
 }
 
+#map-canvas{
+	width: 60%;
+	height: 500px;
+}
+
 .bcolor{
 	background-color: black;
 	color: #999999;
@@ -42,6 +47,10 @@ html, body{
 	padding-right: 10px;
 }
 
+.form-title{
+	margin-left: 30px;
+	margin-top: 5px;
+}
 .control-label{
 	padding: 0;
 }
