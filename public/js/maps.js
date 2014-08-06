@@ -2,10 +2,10 @@ var map;
 var markers = [];
 
 function initialize() {
-  var haightAshbury = new google.maps.LatLng(37.7699298, -122.4469157);
+  var boulder = new google.maps.LatLng(40.0457966, -105.1249414);
   var mapOptions = {
-    zoom: 12,
-    center: haightAshbury,
+    zoom: 10,
+    center: boulder,
     mapTypeId: google.maps.MapTypeId.TERRAIN
   };
   map = new google.maps.Map(document.getElementById('map-canvas'),
@@ -17,7 +17,7 @@ function initialize() {
   });
 
   // Adds a marker at the center of the map.
-  addMarker(haightAshbury);
+  addMarker(boulder);
 }
 
 // Add a marker to the map and push to the array.
@@ -29,7 +29,7 @@ function addMarker(location) {
   google.maps.event.addListener(marker, "dblclick", function() {
     marker.setMap(null);
 });
-  
+
   markers.push(marker);
 }
 

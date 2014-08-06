@@ -27,8 +27,13 @@ html, body{
 	font-style: italic;
 }
 
+.status-table{
+	width: 70%;
+	border:1px solid lightgrey;
+}
+
 #map-canvas{
-	width: 60%;
+	width: 70%;
 	height: 500px;
 }
 
