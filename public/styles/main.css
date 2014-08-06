@@ -42,8 +42,15 @@ html, body{
 	padding-right: 10px;
 }
 
+.control-label{
+	padding: 0;
+}
 .cl1{
 	margin-left: 40px;
+}
+
+.cl2{
+text-align: left;
 }
 
 .fa-edit{
@@ -73,4 +80,6 @@ html, body{
 	margin-left: 10px;
 }
 
-
+#street, #city{
+	margin-bottom: 5px;
+}
