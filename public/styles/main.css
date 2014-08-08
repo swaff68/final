@@ -24,9 +24,6 @@ html, body{
 
 }
 
-.header-row{
-
-}
 
 .byline{
 	font-size: 20px;
@@ -40,6 +37,10 @@ html, body{
 .status-table{
 	width: 70%;
 	border:1px solid lightgrey;
+}
+
+#sidebar-wrapper{
+	overflow: hidden;
 }
 
 #map-canvas{
@@ -59,7 +60,6 @@ html, body{
 
 .form-hor1{
 	margin-top: 10px;
-	border: 1px solid lightgrey;
 	width: 500px;
 	border-radius: 20px;
 	padding-top:10px;
@@ -87,7 +87,7 @@ text-align: left;
 }
 
 .fg1{
-	margin-bottom: 40px;
+	margin-bottom: 10px;
 }
 
 .fc1{
@@ -99,15 +99,17 @@ text-align: left;
 .ratfc{
 	width: 20%;
 	display: inline;
+	display: none;
 }
+
 
 .ratta{
 	width: 50%;
 	display: inline-block;
 	vertical-align: top;
 	margin-left: 10px;
+	display: none;
 }
 
-#street, #city{
-	margin-bottom: 5px;
-}
+
+

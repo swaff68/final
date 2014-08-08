@@ -23,7 +23,8 @@ var Contribution = mongoose.model('Contribution', {
 	transportQuantity:Number,
 	transportQuantity:String,
 	clothesQuantity:Number,
-	clothesComments:String
+	clothesComments:String,
+	date: { type: Date, default: Date.now },
 
 
 

@@ -1,5 +1,13 @@
 $(function(){
 
+	$.get('/reliefStatus', function(data){
+		for (var i = 0; i < data.length; i++) {
+			
+			var aidType = $('<span>'+data[i].orgName+'</span>');
+			$('.status-table').append(aidType).clone()
+		};
+	})
+
 	$('#reqForm').on('submit', function(e){
 		e.preventDefault();
 		console.log('test');
@@ -9,9 +17,7 @@ $(function(){
 		var orgName = $('#org-name').val()
 		var email = $('#inputEmail1').val()
 		var phone = $('#phone-number').val()
-		var street = $('#street').val()
-		var city = $('#city').val()
-		var zip = $('#zip').val()
+		var address = $('#address').val()
 		var waterQuantity = $('#water-quantity').val()
 		var waterComments = $('#water-comments').val()
 		var mealsQuantity = $('#meals-quantity').val()
@@ -25,14 +31,49 @@ $(function(){
 		var clothesQuantity = $('#clothes-quantity').val()
 		var clothesComments = $('#clothes-comments').val()
 
+		geocoder.geocode( { 'address': address}, function(results, status) {
+		  if (status == google.maps.GeocoderStatus.OK) {
+		    map.setCenter(results[0].geometry.location);
+		    var marker = new google.maps.Marker({
+		        map: map,
+		        position: results[0].geometry.location
+		    });
+		    console.log(results)
 
-		console.log(fName, lName, orgName, email, phone, street, city, zip, waterQuantity, waterComments, mealsQuantity, mealsComments, lodgeQuantity, lodgeComments, petsQuantity, petsComments, transportQuantity, transportComments, clothesQuantity, clothesComments)
+		    var latLong = {lat:results[0].geometry.location.lat(), lng:results[0].geometry.location.lng()}
 
-		$.post('/aidSubmit', {fName: fName, lName: lName, orgName: orgName, email: email, phone: phone, street: street, city: city, zip: zip, waterQuantity: waterQuantity, waterComments: waterComments, mealsQuantity: mealsQuantity, mealsComments: mealsComments, lodgeQuantity: lodgeQuantity, lodgeComments: lodgeComments, petsQuantity: petsQuantity, petsComments: petsComments, transportQuantity: transportQuantity, transportComments: transportComments, clothesQuantity: clothesQuantity, clothesComments: clothesComments}, function(data){
-			console.log('data', data)
-		})
+		    console.log(fName, lName, orgName, email, phone, address, waterQuantity, waterComments, mealsQuantity, mealsComments, lodgeQuantity, lodgeComments, petsQuantity, petsComments, transportQuantity, transportComments, clothesQuantity, clothesComments)
+
+		    $.post('/aidSubmit', {fName: fName, lName: lName, orgName: orgName, email: email, phone: phone, address: address, lat: latLong.lat,long: latLong.lng, waterQuantity: waterQuantity, waterComments: waterComments, mealsQuantity: mealsQuantity, mealsComments: mealsComments, lodgeQuantity: lodgeQuantity, lodgeComments: lodgeComments, petsQuantity: petsQuantity, petsComments: petsComments, transportQuantity: transportQuantity, transportComments: transportComments, clothesQuantity: clothesQuantity, clothesComments: clothesComments}, function(data){
+		    	console.log('data', data)
+
+		    })
+
+		    $('#myModal').fadeOut();
+		    $('.modal-backdrop').fadeOut();
+		  } else {
+		    alert('Geocode was not successful for the following reason: ' + status);
+		  }
+
+		});
+
+		
+		
 
 	})	
+
+
+	$('.checkbox label input').on('change', function(){
+		if ($(this).prop('checked')===true) {
+			$(this).parent().siblings('input, textarea').show()
+		}
+
+		else {
+			$(this).parent().siblings('input, textarea').hide()
+
+		}
+
+	});
 
 	$('#contForm').on('submit', function(e){
 		e.preventDefault();
@@ -63,8 +104,33 @@ $(function(){
 			console.log('data', data)
 		})
 
+			$('#myModal1').fadeOut();
+		    $('.modal-backdrop').fadeOut();
+
 	})	
 
+	$('#metricsBtn').one('click', function(){
+		    new Morris.Line({
+		  // ID of the element in which to draw the chart.
+		  element: 'myfirstchart',
+		  // Chart data records -- each entry in this array corresponds to a point on
+		  // the chart.
+		  data: [
+		    { year: '2008', value: 20 },
+		    { year: '2009', value: 10 },
+		    { year: '2010', value: 5 },
+		    { year: '2011', value: 5 },
+		    { year: '2012', value: 20 }
+		  ],
+		  // The name of the data record attribute that contains x-values.
+		  xkey: 'year',
+		  // A list of names of data record attributes that contain y-values.
+		  ykeys: ['value'],
+		  // Labels for the ykeys -- will be displayed when you hover over the
+		  // chart.
+		  labels: ['Value']
+		});
 
+	})
 
 })

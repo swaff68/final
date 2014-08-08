@@ -49,19 +49,19 @@
                     
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" data-toggle="modal" data-target="#myModal">
                         <i class="fa fa-pencil-square-o fa-2x"></i>
                     Request Aid</a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" data-toggle="modal" data-target="#myModal1">
                     <i class="fa fa-pencil-square-o fa-2x"></i>
                     Contribute</a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" id="metricsBtn">
                     <i class="fa fa-bar-chart-o fa-2x"></i> 
-                    Relief Status</a>
+                    Relief Metrics</a>
                 </li>
 
             </ul>
@@ -82,8 +82,8 @@
                 </div>
             </div>
 
-            <div class="row status-table">
-              <div class="col-md-1">.col-md-2</div>
+              <div class="row status-table">
+              <div class="col-md-1"></div>
               <div class="col-md-1">.col-md-2</div>
               <div class="col-md-1">.col-md-2</div>
               <div class="col-md-1">.col-md-2</div>
@@ -93,11 +93,25 @@
 
             <div id="map-canvas"></div>
 
+
+
+          <div id="metricsArea">
             <div id="myfirstchart" style="height: 250px;"></div>
+
+          </div>
+
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h2 class="modal-title" id="myModalLabel">Request Aid Form</h2>
+                  </div>
+                  <div class="modal-body">
 
                 <form class=" row form-hor1 form-horizontal" id="reqForm" role="form">
               <div class="form-group">
-              <h2 for="" class=" row form-title">Request Aid Form</h2>
+
                 <label for="input-first-name" class="col-sm-4 control-label">First Name</label>
                 <div class="col-sm-8">
                   <input type="text" class="form-control" id="first-name"  value="Bob">
@@ -129,17 +143,9 @@
               </div>
              
               <div class="form-group">
-                <label for="input-street" class="col-sm-4 control-label">Address:</label>
+                <label for="input-street" class="col-sm-4 control-label">Address</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="street" value="415 Bowen">
-                </div>
-                <label for="input-city" class="col-sm-4 control-label"></label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="city" value="Longmont">
-                </div>
-                <label for="input-zip" class="col-sm-4 control-label"></label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="zip" value="80501">
+                  <input type="text" class="form-control" id="address" value="415 Bowen, Longmont, CO">
                 </div>
               </div>
 
@@ -219,21 +225,31 @@
                   </div>
                 </div>
               </div>
-              <div class="form-group">
-                <div class="col-sm-offset-1 col-sm-5">
-                  <button type="submit" class="aid-request-btn btn-success btn btn-default">Submit Aid Request</button>
-                </div>
-            
-                <div class="col-sm-offset-1 col-sm-5">
-                  <button type="reset" class="aid-cancel-btn btn-danger btn btn-default">Cancel/Reset Aid Request</button>
-                </div>
-              </div>
+
             </form>
 
+            </div>
+                  <div class="modal-footer">
+                    <button type="submit" form="reqForm" class="btn btn-success aid-request-btn" >Submit Aid Request</button>
+                  <button type="reset" form="reqForm" class="aid-cancel-btn btn-danger btn btn-default">Reset Form</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
 
+
+            <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h2 class="modal-title" id="myModalLabel1">Provide Contribution Form</h2>
+                  </div>
+                  <div class="modal-body">
             <form class=" row form-hor1 form-horizontal" role="form" id="contForm">
               <div class="form-group">
-              <h2 for="" class=" row form-title">Provide Contribution Form</h2>
+
                 <label for="input-first-name" class="col-sm-4 control-label">First Name</label>
                 <div class="col-sm-8">
                   <input type="text" class="form-control" id="first-name-cont" value="George">
@@ -340,16 +356,18 @@
                   </div>
                 </div>
               </div>
-              <div class="form-group">
-                <div class="col-sm-offset-1 col-sm-5">
-                  <button type="submit" class="aid-request-btn btn-success btn btn-default">Submit Contribution</button>
-                </div>
-            
-                <div class="col-sm-offset-1 col-sm-5">
-                  <button type="reset" class="aid-request-btn btn-danger btn btn-default">Cancel / Reset</button>
+              
+            </form>
+
+            </div>
+                  <div class="modal-footer">
+                    <button type="submit" form="contForm" class="btn btn-success cont-provide-btn"  >Submit Contribution Form</button>
+                  <button type="reset" form="contForm" class="aid-cancel-btn btn-danger btn btn-default">Reset Form</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
                 </div>
               </div>
-            </form>
+            </div>
         </div>
         <!-- /#page-content-wrapper -->
 
@@ -380,26 +398,7 @@
         $("#wrapper").toggleClass("toggled");
     });
 
-    new Morris.Line({
-  // ID of the element in which to draw the chart.
-  element: 'myfirstchart',
-  // Chart data records -- each entry in this array corresponds to a point on
-  // the chart.
-  data: [
-    { year: '2008', value: 20 },
-    { year: '2009', value: 10 },
-    { year: '2010', value: 5 },
-    { year: '2011', value: 5 },
-    { year: '2012', value: 20 }
-  ],
-  // The name of the data record attribute that contains x-values.
-  xkey: 'year',
-  // A list of names of data record attributes that contain y-values.
-  ykeys: ['value'],
-  // Labels for the ykeys -- will be displayed when you hover over the
-  // chart.
-  labels: ['Value']
-});
+    
     </script>
 
 </body>

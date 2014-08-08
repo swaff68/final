@@ -13,6 +13,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/', indexController.index);
+app.get('/reliefStatus', indexController.reliefStatus);
 
 app.post('/aidSubmit', indexController.aidSubmit);
 app.post('/contSubmit', indexController.contSubmit);

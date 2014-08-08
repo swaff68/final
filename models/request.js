@@ -12,9 +12,9 @@ var Request = mongoose.model('Request', {
 	orgName: String,
 	email: String,
 	phone: String,
-	street: String,
-	city: String,
-	zip: Number,
+	address: String,
+	lat: Number,
+	long: Number,
 	waterQuantity:Number,
 	waterComments:String,
 	mealsQuantity:Number,
@@ -26,7 +26,8 @@ var Request = mongoose.model('Request', {
 	transportQuantity:Number,
 	transportQuantity:String,
 	clothesQuantity:Number,
-	clothesComments:String
+	clothesComments:String,
+	date: { type: Date, default: Date.now },
 
 
 
