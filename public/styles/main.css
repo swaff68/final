@@ -3,15 +3,25 @@ html, body{
 
 }
 
-#page-content-wrapper{
-	padding: 0;
-
+.banner{
+	height: 50px;
+	width: 100%;
+	background-color: #40A633;
+	position: relative;
 }
+
 .ngale-img{
 	width: 140px;
 	height: 100px;
 	float:left;
-	margin-right: 20px;
+	/*margin-left:1%;*/
+	top:-40px;
+	position: relative;
+}
+
+#page-content-wrapper{
+	padding: 0;
+
 }
 
 .header-row{
@@ -35,6 +45,10 @@ html, body{
 #map-canvas{
 	width: 70%;
 	height: 500px;
+}
+
+#myfirstchart{
+	width: 20%;
 }
 
 .bcolor{
