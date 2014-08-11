@@ -24,7 +24,7 @@ var Request = mongoose.model('Request', {
 	petsQuantity:Number,
 	petsComments:String,
 	transportQuantity:Number,
-	transportQuantity:String,
+	transportComments:String,
 	clothesQuantity:Number,
 	clothesComments:String,
 	date: { type: Date, default: Date.now },

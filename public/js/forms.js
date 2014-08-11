@@ -1,11 +1,12 @@
 $(function(){
 
 	$.get('/reliefStatus', function(data){
-		for (var i = 0; i < data.length; i++) {
-			
-			var aidType = $('<span>'+data[i].orgName+'</span>');
-			$('.status-table').append(aidType).clone()
+		for (requestType in data) {
+			console.log(requestType)
+			var aidType = $('<div class="col-md-2 ">'+'<div>' +data[requestType].displayName+'</div>'+'<div> '+' <i class="fa '+ data[requestType].icon+ '">'+'</i>'+'<div>'+"Total Requests"+'</div>'+'<div>' +data[requestType].requests+'</div>'+'<div>'+"Total Quantity"+'</div>'+'<div>'+data[requestType].quantity+'</div>'+'</div>');
+			$('.status-table').append(aidType)
 		};
+		console.log(data)
 	})
 
 	$('#reqForm').on('submit', function(e){

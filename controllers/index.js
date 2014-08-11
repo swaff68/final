@@ -10,8 +10,89 @@ var indexController = {
 
 
 	reliefStatus: function(req, res){
-		Request.find({orgName: "Red Cross"}, function(err, docs){
-			res.send(docs)
+		console.log("Request called");
+		var requestResults = {
+			clothes :{
+				displayName: "Clothing",
+				icon:  " fa fa-group",
+				requests : 0,
+				quantity: 0
+			},
+			lodge :{
+				displayName: "Lodging",
+				icon:  " fa fa-home",
+				requests : 0,
+				quantity: 0
+			},
+			meals :{
+				displayName: "Meals",
+				icon:  " fa fa-cutlery",
+				requests : 0,
+				quantity: 0
+			},
+			pets :{
+
+				displayName: "Pet Boarding",
+				icon:  " fa fa-paw",
+				requests : 0,
+				quantity: 0
+			},
+			transport :{
+				displayName: "Transportation",
+				icon:  " fa fa-car",
+				requests : 0,
+				quantity: 0
+			},
+			water :{
+				displayName: "Bottles of Water",
+				icon:  " fa fa-tint",
+				requests : 0,
+				quantity: 0
+			},
+
+
+
+
+		}
+		Request.find({}, function(err, docs){
+			//console.log(docs)
+			for (var i = 0; i < docs.length; i++) {
+			//	console.log(docs[i])
+				if(docs[i].waterQuantity >0) {
+					requestResults.water.requests+=1
+					requestResults.water.quantity+= docs[i].waterQuantity
+				}
+				if(docs[i].clothesQuantity >0) {
+
+					requestResults.clothes.requests+=1
+					requestResults.clothes.quantity+= docs[i].clothesQuantity
+
+				}
+
+				if(docs[i].petsQuantity >0) {
+					requestResults.pets.requests+=1
+					requestResults.pets.quantity+= docs[i].petsQuantity
+
+				}
+				if(docs[i].lodgeQuantity >0) {
+					requestResults.lodge.requests+=1
+					requestResults.lodge.quantity+= docs[i].lodgeQuantity
+				}
+
+				if(docs[i].mealsQuantity >0) {
+					requestResults.meals.requests+=1
+					requestResults.meals.quantity+= docs[i].mealsQuantity
+
+				}
+				if(docs[i].transportQuantity >0) {
+					requestResults.transport.requests+=1
+					requestResults.transport.quantity+= docs[i].transportQuantity
+				}
+
+				
+			};
+			console.log(requestResults)
+			res.send(requestResults)
 		})
 
 
