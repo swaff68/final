@@ -36,7 +36,9 @@ function initialize() {
 
     for (var requestMarker in data) {
 
+      var itemCounter = 0;
 
+      
       var mapMarker = new google.maps.LatLng(data[requestMarker].lat, data[requestMarker].long);
 
       var clothes = './pics/clothes.png';
@@ -46,32 +48,45 @@ function initialize() {
       var lodge = './pics/lodge.png';
       var meals = './pics/meals.png';
       var water = './pics/water.png';
-      var image = defaultMarker
+      var multiItem = './pics/multiRequest.png';
+      var image = defaultMarker;
 
       test()
 
       if(data[requestMarker].clothesQuantity >0){
         image = clothes
+        itemCounter++
       }
 
       if(data[requestMarker].transportQuantity >0){
         image = transport
+        itemCounter++
       }
 
       if(data[requestMarker].lodgeQuantity >0){
         image = lodge
+        itemCounter++
       }
 
       if(data[requestMarker].mealsQuantity >0){
         image = meals
+        itemCounter++
       }
 
         if(data[requestMarker].petsQuantity >0){
         image = pets
+        itemCounter++
       }
 
       if(data[requestMarker].waterQuantity >0){
         image = water
+        itemCounter++
+      }
+
+      if(itemCounter >1){
+        console.log(itemCounter)
+        image = multiItem
+        console.log(image)
       }
 
       var marker = new google.maps.Marker({
