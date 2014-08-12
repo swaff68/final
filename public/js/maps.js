@@ -39,19 +39,39 @@ function initialize() {
 
       var mapMarker = new google.maps.LatLng(data[requestMarker].lat, data[requestMarker].long);
 
-      var image1 = './pics/clothes.png';
-      var image2 = './pics/ngale.png';
+      var clothes = './pics/clothes.png';
+      var defaultMarker = null;
       var pets = './pics/pets.png';
-      var image = image2
+      var transport = './pics/transport.png';
+      var lodge = './pics/lodge.png';
+      var meals = './pics/meals.png';
+      var water = './pics/water.png';
+      var image = defaultMarker
 
       test()
 
       if(data[requestMarker].clothesQuantity >0){
-        image = image1
+        image = clothes
+      }
+
+      if(data[requestMarker].transportQuantity >0){
+        image = transport
+      }
+
+      if(data[requestMarker].lodgeQuantity >0){
+        image = lodge
+      }
+
+      if(data[requestMarker].mealsQuantity >0){
+        image = meals
       }
 
         if(data[requestMarker].petsQuantity >0){
         image = pets
+      }
+
+      if(data[requestMarker].waterQuantity >0){
+        image = water
       }
 
       var marker = new google.maps.Marker({
