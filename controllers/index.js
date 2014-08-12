@@ -9,43 +9,60 @@ var indexController = {
 	},
 
 
+	requestMarkers: function(req, res){
+
+		Request.find({}, function(err, docs){
+
+
+			res.send(docs)
+		})
+
+
+		// {
+
+		// for (var i = 0; i < docs.length; i++) {
+		// 	docs[i]
+		// };
+	},
+
+
 	reliefStatus: function(req, res){
 		console.log("Request called");
 		var requestResults = {
 			clothes :{
 				displayName: "Clothing",
-				icon:  " fa fa-group",
+				icon:  " fa fa-group fa-icon",
 				requests : 0,
 				quantity: 0
 			},
 			lodge :{
 				displayName: "Lodging",
-				icon:  " fa fa-home",
+				icon:  " fa fa-home fa-icon",
 				requests : 0,
 				quantity: 0
 			},
 			meals :{
 				displayName: "Meals",
-				icon:  " fa fa-cutlery",
+				icon:  " fa fa-cutlery fa-icon",
 				requests : 0,
 				quantity: 0
 			},
 			pets :{
 
 				displayName: "Pet Boarding",
-				icon:  " fa fa-paw",
+				icon:  " fa fa-paw fa-icon",
 				requests : 0,
 				quantity: 0
 			},
 			transport :{
 				displayName: "Transportation",
-				icon:  " fa fa-car",
+				icon:  " fa fa-car fa-icon",
 				requests : 0,
 				quantity: 0
 			},
 			water :{
 				displayName: "Bottles of Water",
-				icon:  " fa fa-tint",
+				icon:  " fa fa-tint fa-icon",
 				requests : 0,
 				quantity: 0
 			},

@@ -19,8 +19,53 @@ function initialize() {
     addMarker(event.latLng);
   });
 
+
+  var image = './pics/clothes.png';
+
+  // var marker = new google.maps.Marker({
+  //   position: boulder,       
+  //   map: map,
+  //   icon: image,
+  //   title:"Only Clothing Requests"
+  //   });
+ 
   // Adds a marker at the center of the map.
-  addMarker(boulder);
+    // addMarker(boulder);
+
+  $.get('/requestMarkers', function(data){
+
+    for (var requestMarker in data) {
+
+
+      var mapMarker = new google.maps.LatLng(data[requestMarker].lat, data[requestMarker].long);
+
+      var image1 = './pics/clothes.png';
+      var image2 = './pics/ngale.png';
+      var pets = './pics/pets.png';
+      var image = image2
+
+      test()
+
+      if(data[requestMarker].clothesQuantity >0){
+        image = image1
+      }
+
+        if(data[requestMarker].petsQuantity >0){
+        image = pets
+      }
+
+      var marker = new google.maps.Marker({
+            map: map,
+            icon: image,
+            position: mapMarker
+        });
+      console.log(requestMarker)
+
+      // addMarker(mapMarker);
+
+    };
+    console.log(data)
+  })
 }
 
 // Add a marker to the map and push to the array.

@@ -1,3 +1,8 @@
+
+var test = function () {
+	console.log('test ran!')
+}
+
 $(function(){
 
 	$.get('/reliefStatus', function(data){
@@ -34,9 +39,12 @@ $(function(){
 
 		geocoder.geocode( { 'address': address}, function(results, status) {
 		  if (status == google.maps.GeocoderStatus.OK) {
+		  	test()
 		    map.setCenter(results[0].geometry.location);
+		    var image = './pics/clothes.png';
 		    var marker = new google.maps.Marker({
 		        map: map,
+		        // icon: image,
 		        position: results[0].geometry.location
 		    });
 		    console.log(results)
