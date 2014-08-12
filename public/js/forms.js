@@ -3,6 +3,8 @@ var test = function () {
 	console.log('test ran!')
 }
 
+
+
 $(function(){
 
 	$.get('/reliefStatus', function(data){
@@ -41,10 +43,57 @@ $(function(){
 		  if (status == google.maps.GeocoderStatus.OK) {
 		  	test()
 		    map.setCenter(results[0].geometry.location);
-		    var image = './pics/clothes.png';
+		    var clothes = './pics/clothes.png';
+		    var defaultMarker = null;
+		    var pets = './pics/pets.png';
+		    var transport = './pics/transport.png';
+		    var lodge = './pics/lodge.png';
+		    var meals = './pics/meals.png';
+		    var water = './pics/water.png';
+		    var multiItem = './pics/multiRequest.png';
+		    var image = defaultMarker;
+			var itemCounter = 0;
+		    test()
+
+		    if(clothesQuantity >0){
+		      image = clothes
+		      itemCounter++
+		    }
+
+		    if(transportQuantity >0){
+		      image = transport
+		      itemCounter++
+		    }
+
+		    if(lodgeQuantity >0){
+		      image = lodge
+		      itemCounter++
+		    }
+
+		    if(mealsQuantity >0){
+		      image = meals
+		      itemCounter++
+		    }
+
+		      if(petsQuantity >0){
+		      image = pets
+		      itemCounter++
+		    }
+
+		    if(waterQuantity >0){
+		      image = water
+		      itemCounter++
+		    }
+
+		    if(itemCounter >1){
+		      console.log(itemCounter)
+		      image = multiItem
+		      console.log(image)
+		    }
+
 		    var marker = new google.maps.Marker({
 		        map: map,
-		        // icon: image,
+		        icon: image,
 		        position: results[0].geometry.location
 		    });
 		    console.log(results)

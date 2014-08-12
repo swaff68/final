@@ -17,12 +17,6 @@ var indexController = {
 			res.send(docs)
 		})
 
-
-		// {
-
-		// for (var i = 0; i < docs.length; i++) {
-		// 	docs[i]
-		// };
 	},
 
 
