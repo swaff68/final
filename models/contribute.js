@@ -7,24 +7,40 @@ var mongoose = require('mongoose')
 
 var Contribution = mongoose.model('Contribution', {
 	
+	// fName: String,
+	// lName: String,
+	// orgName: String,
+	// email: String,
+	// phone: String,
+	// waterQuantity:Number,
+	// waterComments:String,
+	// mealsQuantity:Number,
+	// mealsComments:String,
+	// lodgeQuantity:Number,
+	// lodgeComments:String,
+	// petsQuantity:Number,
+	// petsComments:String,
+	// transportQuantity:Number,
+	// transportQuantity:String,
+	// clothesQuantity:Number,
+	// clothesComments:String,
+	// date: { type: Date, default: Date.now },
+
+
+
+
+	contid: String,
+	contributionType: String,
+	contributionQuantity: Number,
+	contributionComments:String,
+	assocReqId: String,
+	assocQuantityRequested:Number,
+	assocDateRequested: { type: Date, default: Date.now },
 	fName: String,
 	lName: String,
 	orgName: String,
 	email: String,
 	phone: String,
-	waterQuantity:Number,
-	waterComments:String,
-	mealsQuantity:Number,
-	mealsComments:String,
-	lodgeQuantity:Number,
-	lodgeComments:String,
-	petsQuantity:Number,
-	petsComments:String,
-	transportQuantity:Number,
-	transportQuantity:String,
-	clothesQuantity:Number,
-	clothesComments:String,
-	date: { type: Date, default: Date.now },
 
 
 

@@ -25,18 +25,21 @@ var indexController = {
 		var requestResults = {
 			clothes :{
 				displayName: "Clothing",
+				id: 'clothing',
 				icon:  " fa fa-group fa-icon",
 				requests : 0,
 				quantity: 0
 			},
 			lodge :{
 				displayName: "Lodging",
+				id: 'lodging',
 				icon:  " fa fa-home fa-icon",
 				requests : 0,
 				quantity: 0
 			},
 			meals :{
 				displayName: "Meals",
+				id: 'meals',
 				icon:  " fa fa-cutlery fa-icon",
 				requests : 0,
 				quantity: 0
@@ -44,18 +47,21 @@ var indexController = {
 			pets :{
 
 				displayName: "Pet Boarding",
+				id: 'pet-boarding',
 				icon:  " fa fa-paw fa-icon",
 				requests : 0,
 				quantity: 0
 			},
 			transport :{
 				displayName: "Transportation",
+				id: 'transportation',
 				icon:  " fa fa-car fa-icon",
 				requests : 0,
 				quantity: 0
 			},
 			water :{
 				displayName: "Bottles of Water",
+				id: 'water',
 				icon:  " fa fa-tint fa-icon",
 				requests : 0,
 				quantity: 0
@@ -69,35 +75,35 @@ var indexController = {
 			//console.log(docs)
 			for (var i = 0; i < docs.length; i++) {
 			//	console.log(docs[i])
-				if(docs[i].waterQuantity >0) {
+				if(docs[i].requestType==='water' && docs[i].quantityRequested >0) {
 					requestResults.water.requests+=1
-					requestResults.water.quantity+= docs[i].waterQuantity
+					requestResults.water.quantity+= docs[i].quantityRequested
 				}
-				if(docs[i].clothesQuantity >0) {
+				if(docs[i].requestType==='clothing' && docs[i].quantityRequested >0) {
 
 					requestResults.clothes.requests+=1
-					requestResults.clothes.quantity+= docs[i].clothesQuantity
+					requestResults.clothes.quantity+= docs[i].quantityRequested
 
 				}
 
-				if(docs[i].petsQuantity >0) {
+				if(docs[i].requestType==='pets' && docs[i].quantityRequested >0) {
 					requestResults.pets.requests+=1
-					requestResults.pets.quantity+= docs[i].petsQuantity
+					requestResults.pets.quantity+= docs[i].quantityRequested
 
 				}
-				if(docs[i].lodgeQuantity >0) {
+				if(docs[i].requestType==='lodging' && docs[i].quantityRequested >0) {
 					requestResults.lodge.requests+=1
-					requestResults.lodge.quantity+= docs[i].lodgeQuantity
+					requestResults.lodge.quantity+= docs[i].quantityRequested
 				}
 
-				if(docs[i].mealsQuantity >0) {
+				if(docs[i].requestType==='meals' && docs[i].quantityRequested >0) {
 					requestResults.meals.requests+=1
-					requestResults.meals.quantity+= docs[i].mealsQuantity
+					requestResults.meals.quantity+= docs[i].quantityRequested
 
 				}
-				if(docs[i].transportQuantity >0) {
+				if(docs[i].requestType==='transportation' && docs[i].quantityRequested >0) {
 					requestResults.transport.requests+=1
-					requestResults.transport.quantity+= docs[i].transportQuantity
+					requestResults.transport.quantity+= docs[i].quantityRequested
 				}
 
 				
@@ -112,9 +118,8 @@ var indexController = {
 
 	aidSubmit: function(req, res){
 
-		console.log(req.body.fName, req.body.lName, req.body.orgName, req.body.email , req.body.phone , req.body.address, req.body.lat, req.body.long, req.body.waterQuantity, req.body.waterComments, req.body.mealsQuantity, req.body.mealsComments, req.body.lodgeQuantity, req.body.lodgeComments, req.body.petsQuantity, req.body.petsComments, req.body.transportQuantity, req.body.transportComments, req.body.clothesQuantity, req.body.clothesComments)
+		// console.log(req.body.fName, req.body.lName, req.body.orgName, req.body.email , req.body.phone , req.body.address, req.body.lat, req.body.long, req.body.waterQuantity, req.body.waterComments, req.body.mealsQuantity, req.body.mealsComments, req.body.lodgeQuantity, req.body.lodgeComments, req.body.petsQuantity, req.body.petsComments, req.body.transportQuantity, req.body.transportComments, req.body.clothesQuantity, req.body.clothesComments)
 
-		res.send('success');
 
 
 		var request = new Request(
@@ -128,9 +133,10 @@ var indexController = {
 			res.send(500, 'ERROR')
 				}
 			else {
-			res.render('thankyou', {
-				'newrequest': request
-				});
+			// res.render('thankyou', {
+			// 	'newrequest': request
+			// 	});
+			res.send(result);
 			}
 		});
 

@@ -20,7 +20,7 @@ function initialize() {
   });
 
 
-  var image = './pics/clothes.png';
+  // var image = './pics/clothes.png';
 
   // var marker = new google.maps.Marker({
   //   position: boulder,       
@@ -34,12 +34,17 @@ function initialize() {
 
   $.get('/requestMarkers', function(data){
 
-    for (var requestMarker in data) {
+    var groups = _.groupBy(data, function(item){
+      return item.groupId
+    })
+      console.log(groups)
 
-      var itemCounter = 0;
+    for (var requestMarker in groups) {
 
-      
-      var mapMarker = new google.maps.LatLng(data[requestMarker].lat, data[requestMarker].long);
+    
+
+  
+      var mapMarker = new google.maps.LatLng(groups[requestMarker][0].lat, groups[requestMarker][0].long);
 
       var clothes = './pics/clothes.png';
       var defaultMarker = null;
@@ -53,41 +58,36 @@ function initialize() {
 
       test()
 
-      if(data[requestMarker].clothesQuantity >0){
-        image = clothes
-        itemCounter++
-      }
-
-      if(data[requestMarker].transportQuantity >0){
-        image = transport
-        itemCounter++
-      }
-
-      if(data[requestMarker].lodgeQuantity >0){
-        image = lodge
-        itemCounter++
-      }
-
-      if(data[requestMarker].mealsQuantity >0){
-        image = meals
-        itemCounter++
-      }
-
-        if(data[requestMarker].petsQuantity >0){
-        image = pets
-        itemCounter++
-      }
-
-      if(data[requestMarker].waterQuantity >0){
-        image = water
-        itemCounter++
-      }
-
-      if(itemCounter >1){
-        console.log(itemCounter)
+      if(groups[requestMarker].length >1){
         image = multiItem
-        console.log(image)
       }
+      else
+      {
+       if(groups[requestMarker][0].requestType === 'clothing'){
+        image = clothes
+      }
+
+      if(groups[requestMarker][0].requestType === 'transportation'){
+        image = transport
+      }
+
+      if(groups[requestMarker][0].requestType === 'lodging'){
+        image = lodge
+      }
+
+      if(groups[requestMarker][0].requestType === 'meals'){
+        image = meals
+      }
+
+        if(groups[requestMarker][0].requestType === 'pets'){
+        image = pets
+      }
+
+      if(groups[requestMarker][0].requestType === 'water'){
+        image = water
+      } 
+      }
+
 
       var marker = new google.maps.Marker({
             map: map,

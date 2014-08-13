@@ -57,6 +57,13 @@ html, body{
 
 }
 
+.aid-type-table{
+	font-size: 10px;
+	width:550px;
+	margin-left:0;
+	display: none;
+}
+
 .fa-home{
 
 }

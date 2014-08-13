@@ -7,6 +7,48 @@ var mongoose = require('mongoose')
 
 var Request = mongoose.model('Request', {
 	
+	// fName: String,
+	// lName: String,
+	// orgName: String,
+	// email: String,
+	// phone: String,
+	// address: String,
+	// lat: Number,
+	// long: Number,
+	// waterQuantity:Number,
+	// waterComments:String,
+	// mealsQuantity:Number,
+	// mealsComments:String,
+	// lodgeQuantity:Number,
+	// lodgeComments:String,
+	// petsQuantity:Number,
+	// petsComments:String,
+	// transportQuantity:Number,
+	// transportComments:String,
+	// clothesQuantity:Number,
+	// clothesComments:String,
+	// date: { type: Date, default: Date.now },
+
+
+
+	requestType: String,
+	quantityRequested: Number,
+	requestComments: String,
+	contributions: [ 
+
+		{
+		contGroupId: String,
+		quantityContributed: Number,
+		fName: String,
+		lName: String,
+		orgName: String,
+		email: String,
+		phone: String,
+		dateContributed:{ type: Date, default: Date.now }
+		}
+
+	],
+
 	fName: String,
 	lName: String,
 	orgName: String,
@@ -15,21 +57,8 @@ var Request = mongoose.model('Request', {
 	address: String,
 	lat: Number,
 	long: Number,
-	waterQuantity:Number,
-	waterComments:String,
-	mealsQuantity:Number,
-	mealsComments:String,
-	lodgeQuantity:Number,
-	lodgeComments:String,
-	petsQuantity:Number,
-	petsComments:String,
-	transportQuantity:Number,
-	transportComments:String,
-	clothesQuantity:Number,
-	clothesComments:String,
-	date: { type: Date, default: Date.now },
-
-
+	dateRequested: { type: Date, default: Date.now },
+	groupId: String
 
 });
 

@@ -7,10 +7,13 @@ var test = function () {
 
 $(function(){
 
+
+
+
 	$.get('/reliefStatus', function(data){
 		for (requestType in data) {
 			console.log(requestType)
-			var aidType = $('<div class="col-md-2 ">'+'<div>' +data[requestType].displayName+'</div>'+'<div> '+' <i class="fa '+ data[requestType].icon+ '">'+'</i>'+'<div>'+"Total Requests"+'</div>'+'<div>' +data[requestType].requests+'</div>'+'<div>'+"Total Quantity"+'</div>'+'<div>'+data[requestType].quantity+'</div>'+'</div>');
+			var aidType = $('<div class="col-md-2 '+ data[requestType].id+'">'+'<div>' +data[requestType].displayName+'</div>'+'<div> '+' <i class="fa '+ data[requestType].icon+ '">'+'</i>'+'<div>'+"Current Requests"+'</div>'+'<div class="curReq">' +data[requestType].requests+'</div>'+'<div>'+"Quantity Still Needed"+'</div>'+'<div class="quanStillNeeded">'+data[requestType].quantity+'</div>'+'</div>');
 			$('.status-table').append(aidType)
 		};
 		console.log(data)
@@ -26,11 +29,19 @@ $(function(){
 		var email = $('#inputEmail1').val()
 		var phone = $('#phone-number').val()
 		var address = $('#address').val()
+		var water = $('.water-checkbox').is(':checked')
+		var meals = $('.meals-checkbox').is(':checked')
+		var lodge = $('.lodge-checkbox').is(':checked')
+		var pets = $('.pets-checkbox').is(':checked')
+		var transport = $('.transport-checkbox').is(':checked')
+		var clothes = $('.clothes-checkbox').is(':checked')
+
+		// var requestType =$('checkbox').val()
 		var waterQuantity = $('#water-quantity').val()
 		var waterComments = $('#water-comments').val()
 		var mealsQuantity = $('#meals-quantity').val()
 		var mealsComments = $('#meals-comments').val()
-		var lodgeQuantity = $('#lodge-quantity').val()
+		var lodgeQuantity = +$('#lodge-quantity').val()
 		var lodgeComments = $('#lodge-comments').val()
 		var petsQuantity = $('#pets-quantity').val()
 		var petsComments = $('#pets-comments').val()
@@ -43,52 +54,53 @@ $(function(){
 		  if (status == google.maps.GeocoderStatus.OK) {
 		  	test()
 		    map.setCenter(results[0].geometry.location);
-		    var clothes = './pics/clothes.png';
+		    var clothesMarker = './pics/clothes.png';
 		    var defaultMarker = null;
-		    var pets = './pics/pets.png';
-		    var transport = './pics/transport.png';
-		    var lodge = './pics/lodge.png';
-		    var meals = './pics/meals.png';
-		    var water = './pics/water.png';
-		    var multiItem = './pics/multiRequest.png';
+		    var petsMarker = './pics/pets.png';
+		    var transportMarker = './pics/transport.png';
+		    var lodgeMarker = './pics/lodge.png';
+		    var mealsMarker = './pics/meals.png';
+		    var waterMarker = './pics/water.png';
+		    var multiItemMarker = './pics/multiRequest.png';
 		    var image = defaultMarker;
 			var itemCounter = 0;
 		    test()
 
-		    if(clothesQuantity >0){
-		      image = clothes
+
+		    if(clothes === true && clothesQuantity >0){
+		      image = clothesMarker
 		      itemCounter++
 		    }
 
-		    if(transportQuantity >0){
-		      image = transport
+		    if(transport === true && transportQuantity >0){
+		      image = transportMarker
 		      itemCounter++
 		    }
 
-		    if(lodgeQuantity >0){
-		      image = lodge
+		    if(lodge === true && lodgeQuantity >0){
+		      image = lodgeMarker
 		      itemCounter++
 		    }
 
-		    if(mealsQuantity >0){
-		      image = meals
+		    if(meals === true && mealsQuantity >0){
+		      image = mealsMarker
 		      itemCounter++
 		    }
 
-		      if(petsQuantity >0){
-		      image = pets
+		      if(pets === true && petsQuantity >0){
+		      image = petsMarker
 		      itemCounter++
 		    }
 
-		    if(waterQuantity >0){
-		      image = water
+			if(water === true && waterQuantity >0){
+		      image = waterMarker
 		      itemCounter++
 		    }
 
 		    if(itemCounter >1){
 		      console.log(itemCounter)
-		      image = multiItem
-		      console.log(image)
+		      image = multiItemMarker
+
 		    }
 
 		    var marker = new google.maps.Marker({
@@ -100,12 +112,97 @@ $(function(){
 
 		    var latLong = {lat:results[0].geometry.location.lat(), lng:results[0].geometry.location.lng()}
 
-		    console.log(fName, lName, orgName, email, phone, address, waterQuantity, waterComments, mealsQuantity, mealsComments, lodgeQuantity, lodgeComments, petsQuantity, petsComments, transportQuantity, transportComments, clothesQuantity, clothesComments)
+		    // console.log(fName, lName, orgName, email, phone, address, waterQuantity, waterComments, mealsQuantity, mealsComments, lodgeQuantity, lodgeComments, petsQuantity, petsComments, transportQuantity, transportComments, clothesQuantity, clothesComments)
+		    console.log('this is water', water)
+		    console.log('this is meals', meals)
 
-		    $.post('/aidSubmit', {fName: fName, lName: lName, orgName: orgName, email: email, phone: phone, address: address, lat: latLong.lat,long: latLong.lng, waterQuantity: waterQuantity, waterComments: waterComments, mealsQuantity: mealsQuantity, mealsComments: mealsComments, lodgeQuantity: lodgeQuantity, lodgeComments: lodgeComments, petsQuantity: petsQuantity, petsComments: petsComments, transportQuantity: transportQuantity, transportComments: transportComments, clothesQuantity: clothesQuantity, clothesComments: clothesComments}, function(data){
-		    	console.log('data', data)
+		    var groupId = (+new Date()).toString(36)
 
-		    })
+		    if(water === true){
+		    	$.post('/aidSubmit', {fName: fName, lName: lName, orgName: orgName, email: email, phone: phone, address: address, lat: latLong.lat,long: latLong.lng,requestType: 'water', quantityRequested: waterQuantity, requestComments: waterComments, groupId:groupId}, function(data)
+		    		{
+		    		var originalVal = $('.water .curReq').text()
+		    		originalVal = +originalVal+1
+		    		$('.water .curReq').text(originalVal)
+
+		    		var originVal = $('.water .quanStillNeeded').text()
+		    		originVal = +originVal + lodgeQuantity
+		    		$('.water .quanStillNeeded').text(originVal)
+		    		}
+				)}
+
+			if(meals === true){
+				$.post('/aidSubmit', {fName: fName, lName: lName, orgName: orgName, email: email, phone: phone, address: address, lat: latLong.lat,long: latLong.lng,requestType: 'meals', quantityRequested: mealsQuantity, requestComments: mealsComments, groupId:groupId}, function(data)
+		    		{
+		    		var originalVal = $('.meals .curReq').text()
+		    		originalVal = +originalVal+1
+		    		$('.meals .curReq').text(originalVal)
+
+		    		var originVal = $('.meals .quanStillNeeded').text()
+		    		originVal = +originVal + lodgeQuantity
+		    		$('.meals .quanStillNeeded').text(originVal)
+		    		}
+				)}
+
+				if(pets === true){
+				$.post('/aidSubmit', {fName: fName, lName: lName, orgName: orgName, email: email, phone: phone, address: address, lat: latLong.lat,long: latLong.lng,requestType: 'pets', quantityRequested: petsQuantity, requestComments: petsComments, groupId:groupId}, function(data)
+		    		{
+		    		var originalVal = $('.pet-boarding .curReq').text()
+		    		originalVal = +originalVal+1
+		    		$('.pet-boarding .curReq').text(originalVal)
+
+		    		var originVal = $('.pet-boarding .quanStillNeeded').text()
+		    		originVal = +originVal + lodgeQuantity
+		    		$('.pet-boarding .quanStillNeeded').text(originVal)
+		    		}
+				)}
+
+				if(lodge === true){
+				$.post('/aidSubmit', {fName: fName, lName: lName, orgName: orgName, email: email, phone: phone, address: address, lat: latLong.lat,long: latLong.lng,requestType: 'lodging', quantityRequested: lodgeQuantity, requestComments: lodgeComments, groupId:groupId}, function(data)
+		    		{
+		    		var originalVal = $('.lodging .curReq').text()
+		    		originalVal = +originalVal+1
+		    		$('.lodging .curReq').text(originalVal)
+		    		
+		    		
+		    		var originVal = $('.lodging .quanStillNeeded').text()
+		    		originVal = +originVal + lodgeQuantity
+		    		$('.lodging .quanStillNeeded').text(originVal)
+		    		}
+				)}
+
+				if(transport === true){
+				$.post('/aidSubmit', {fName: fName, lName: lName, orgName: orgName, email: email, phone: phone, address: address, lat: latLong.lat,long: latLong.lng,requestType: 'transportation', quantityRequested: transportQuantity, requestComments: transportComments, groupId:groupId}, function(data)
+		    		{
+		    		var originalVal = $('.transportation .curReq').text()
+		    		originalVal = +originalVal+1
+		    		$('.transportation .curReq').text(originalVal)
+
+		    		var originVal = $('.transportation .quanStillNeeded').text()
+		    		originVal = +originVal + lodgeQuantity
+		    		$('.transportation .quanStillNeeded').text(originVal)
+		    		}
+				)}
+
+				if(clothes === true){
+				$.post('/aidSubmit', {fName: fName, lName: lName, orgName: orgName, email: email, phone: phone, address: address, lat: latLong.lat,long: latLong.lng,requestType: 'clothing', quantityRequested: clothesQuantity, requestComments: clothesComments, groupId:groupId}, function(data)
+		    		{
+		    		var originalVal = $('.clothing .curReq').text()
+		    		originalVal = +originalVal+1
+		    		$('.clothing .curReq').text(originalVal)
+
+		    		var originVal = $('.clothing .quanStillNeeded').text()
+		    		originVal = +originVal + lodgeQuantity
+		    		$('.clothing .quanStillNeeded').text(originVal)
+		    		}
+				)}
+
+			else{}
+
+		    // $.post('/aidSubmit', {fName: fName, lName: lName, orgName: orgName, email: email, phone: phone, address: address, lat: latLong.lat,long: latLong.lng,  waterQuantity: waterQuantity, waterComments: waterComments, mealsQuantity: mealsQuantity, mealsComments: mealsComments, lodgeQuantity: lodgeQuantity, lodgeComments: lodgeComments, petsQuantity: petsQuantity, petsComments: petsComments, transportQuantity: transportQuantity, transportComments: transportComments, clothesQuantity: clothesQuantity, clothesComments: clothesComments}, function(data){
+		    // 	console.log('data', data)
+
+		    // 	})
 
 		    $('#myModal').fadeOut();
 		    $('.modal-backdrop').fadeOut();
@@ -123,11 +220,11 @@ $(function(){
 
 	$('.checkbox label input').on('change', function(){
 		if ($(this).prop('checked')===true) {
-			$(this).parent().siblings('input, textarea').show()
+			$(this).parent().siblings('input, textarea, table').show()
 		}
 
 		else {
-			$(this).parent().siblings('input, textarea').hide()
+			$(this).parent().siblings('input, textarea, table').hide()
 
 		}
 
