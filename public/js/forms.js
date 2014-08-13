@@ -8,14 +8,139 @@ var test = function () {
 $(function(){
 
 
-	$.get('/reliefRequets', function(data){
+	$.get('/reliefRequests', function(data){
+		console.log(data)
 
+		for (var i = 0; i < data.length; i++) {
+		var reqType = data[i].requestType
+		if (reqType === 'water') {
 
-			for (requestType in data) {
-
-			var waterRequests = $('<tr>'+'<td>'+'<input type="checkbox" class="water-request-checkbox">'+'</td>'+'</tr>');
+			var waterRequests = $('<tr>' + '<td>' + '<input type="checkbox" class="water-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
 			$('.water-table').append(waterRequests)
+
+
 			};
+
+			if (reqType === 'meals') {
+
+			var mealsRequests = $('<tr>' + '<td>' + '<input type="checkbox" class="meals-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
+			$('.meals-table').append(mealsRequests)
+
+
+			};
+
+
+			if (reqType === 'lodging') {
+
+				var lodgeRequests = $('<tr>' + '<td>' + '<input type="checkbox" class="lodge-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
+				$('.lodge-table').append(lodgeRequests)
+
+
+			};
+
+			if (reqType === 'pets') {
+
+				var petsRequests = $('<tr>' + '<td>' + '<input type="checkbox" class="pets-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
+				$('.pets-table').append(petsRequests)
+
+
+			};
+
+			if (reqType === 'transportation') {
+
+				var transportRequests = $('<tr>' + '<td>' + '<input type="checkbox" class="transport-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
+				$('.transport-table').append(transportRequests)
+
+
+			};
+
+
+			if (reqType === 'clothing') {
+
+				var clothesRequests = $('<tr>' + '<td>' + '<input type="checkbox" class="clothes-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
+				$('.clothes-table').append(clothesRequests)
+
+
+			};
+
+
+		};
+			$('.water-request-checkbox').on('change', function(){
+						var selRequest = '<tr class="success">' + '<th colspan="3" class="contResponseH">' + 'Quantity to Contribute?' + '</th>' + '<th colspan="3" class="contComments">' + 'Contribution Comments' + '</tr>' + '<tr class="contResponseD">' + '<td colspan="3">' +  '<input type="text" class="qc-text water-cont-quantity">' + '</td>' + '<td colspan="3">' + '<textarea class=" cc-text water-cont-comments" rows="1">' + '</textarea>' + '</td>' + '</tr>'
+				if($(this).prop('checked')){
+					$(this).closest('tr').after(selRequest);
+						
+				}
+				else{
+					$(this).closest('tr').next().remove();
+					$(this).closest('tr').next().remove();
+				}
+			});
+
+
+		
+		
+			$('.meals-request-checkbox').on('change', function(){
+						var selRequest = '<tr class="success">' + '<th colspan="3" class="contResponseH">' + 'Quantity to Contribute?' + '</th>' + '<th colspan="3" class="contComments">' + 'Contribution Comments' + '</tr>' + '<tr class="contResponseD">' + '<td colspan="3">' +  '<input type="text" class="qc-text meals-cont-quantity">' + '</td>' + '<td colspan="3">' + '<textarea class=" cc-text meals-cont-comments" rows="1">' + '</textarea>' + '</td>' + '</tr>'
+				if($(this).prop('checked')){
+					$(this).closest('tr').after(selRequest);
+						
+				}
+				else{
+					$(this).closest('tr').next().remove();
+					$(this).closest('tr').next().remove();
+				}
+			});
+
+			$('.pets-request-checkbox').on('change', function(){
+						var selRequest = '<tr class="success">' + '<th colspan="3" class="contResponseH">' + 'Quantity to Contribute?' + '</th>' + '<th colspan="3" class="contComments">' + 'Contribution Comments' + '</tr>' + '<tr class="contResponseD">' + '<td colspan="3">' +  '<input type="text" class=" qc-text pets-cont-quantity">' + '</td>' + '<td colspan="3">' + '<textarea class=" cc-text pets-cont-comments" rows="1">' + '</textarea>' + '</td>' + '</tr>'
+				if($(this).prop('checked')){
+					$(this).closest('tr').after(selRequest);
+						
+				}
+				else{
+					$(this).closest('tr').next().remove();
+					$(this).closest('tr').next().remove();
+				}
+			});
+
+
+
+			$('.lodge-request-checkbox').on('change', function(){
+						var selRequest = '<tr class="success">' + '<th colspan="3" class="contResponseH">' + 'Quantity to Contribute?' + '</th>' + '<th colspan="3" class="contComments">' + 'Contribution Comments' + '</tr>' + '<tr class="contResponseD">' + '<td colspan="3">' +  '<input type="text" class="qc-text lodge-cont-quantity">' + '</td>' + '<td colspan="3">' + '<textarea class=" cc-text lodge-cont-comments" rows="1">' + '</textarea>' + '</td>' + '</tr>'
+				if($(this).prop('checked')){
+					$(this).closest('tr').after(selRequest);
+						
+				}
+				else{
+					$(this).closest('tr').next().remove();
+					$(this).closest('tr').next().remove();
+				}
+			});
+
+			$('.transport-request-checkbox').on('change', function(){
+						var selRequest = '<tr class="success">' + '<th colspan="3" class="contResponseH">' + 'Quantity to Contribute?' + '</th>' + '<th colspan="3" class="contComments">' + 'Contribution Comments' + '</tr>' + '<tr class="contResponseD">' + '<td colspan="3">' +  '<input type="text" class=" qc-text transport-cont-quantity">' + '</td>' + '<td colspan="3">' + '<textarea class=" cc-text transport-cont-comments" rows="1">' + '</textarea>' + '</td>' + '</tr>'
+				if($(this).prop('checked')){
+					$(this).closest('tr').after(selRequest);
+						
+				}
+				else{
+					$(this).closest('tr').next().remove();
+					$(this).closest('tr').next().remove();
+				}
+			});
+
+			$('.clothes-request-checkbox').on('change', function(){
+						var selRequest = '<tr class="success">' + '<th colspan="3" class="contResponseH">' + 'Quantity to Contribute?' + '</th>' + '<th colspan="3" class="contComments">' + 'Contribution Comments' + '</tr>' + '<tr class="contResponseD">' + '<td colspan="3">' +  '<input type="text" class=" qc-text clothes-cont-quantity">' + '</td>' + '<td colspan="3">' + '<textarea class=" cc-text clothes-cont-comments" rows="1">' + '</textarea>' + '</td>' + '</tr>'
+				if($(this).prop('checked')){
+					$(this).closest('tr').after(selRequest);
+						
+				}
+				else{
+					$(this).closest('tr').next().remove();
+					$(this).closest('tr').next().remove();
+				}
+			});
 		
 	})
 
@@ -263,7 +388,7 @@ $(function(){
 		var clothesComments = $('#clothes-comments-cont').val()
 
 
-		console.log(fName, lName, orgName, email, phone, waterQuantity, waterComments, mealsQuantity, mealsComments, lodgeQuantity, lodgeComments, petsQuantity, petsComments, transportQuantity, transportComments, clothesQuantity, clothesComments)
+		// console.log(fName, lName, orgName, email, phone, waterQuantity, waterComments, mealsQuantity, mealsComments, lodgeQuantity, lodgeComments, petsQuantity, petsComments, transportQuantity, transportComments, clothesQuantity, clothesComments)
 
 		$.post('/contSubmit', {fName: fName, lName: lName, orgName: orgName, email: email, phone: phone, waterQuantity: waterQuantity, waterComments: waterComments, mealsQuantity: mealsQuantity, mealsComments: mealsComments, lodgeQuantity: lodgeQuantity, lodgeComments: lodgeComments, petsQuantity: petsQuantity, petsComments: petsComments, transportQuantity: transportQuantity, transportComments: transportComments, clothesQuantity: clothesQuantity, clothesComments: clothesComments}, function(data){
 			console.log('data', data)

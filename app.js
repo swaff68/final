@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/', indexController.index);
 app.get('/reliefStatus', indexController.reliefStatus);
-app.get('//reliefRequets', indexController.reliefRequests);
+app.get('/reliefRequests', indexController.reliefRequests);
 app.get('/requestMarkers', indexController.requestMarkers);
 
 app.post('/aidSubmit', indexController.aidSubmit);

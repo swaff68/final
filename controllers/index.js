@@ -116,9 +116,11 @@ var indexController = {
 	},
 
 
-	// reliefRequets:function(req, res){
-	// 	var listOfRequests = 
-	// }
+	reliefRequests:function(req, res){
+		Request.find({},function(err, docs){
+			res.send(docs)
+		})
+	},
 
 	aidSubmit: function(req, res){
 

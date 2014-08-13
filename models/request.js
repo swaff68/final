@@ -38,6 +38,7 @@ var Request = mongoose.model('Request', {
 
 		{
 		contGroupId: String,
+		contributionType:String,
 		quantityContributed: Number,
 		fName: String,
 		lName: String,

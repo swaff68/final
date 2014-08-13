@@ -58,15 +58,54 @@ html, body{
 }
 
 .aid-type-table{
-	font-size: 10px;
+	font-size: 12px;
 	width:550px;
 	margin-left:0;
 	display: none;
 }
 
-.fa-home{
-
+input[type=checkbox].cbox{
+margin-left: 5px;
 }
+
+.comments{
+	text-align: center;
+}
+
+.ckbx{
+	width: 5px;
+}
+
+.qNeeded{
+	width: 50px;
+	text-align: center;
+}
+
+.reqC{
+	width: 200px;
+	text-align: center;
+}
+
+.contResponseH{
+	margin-left: 50px;
+	text-align: center;
+}
+
+.qc-text{
+	display: block;
+	margin: auto;
+	width: 50px;
+}
+
+.cc-text{
+	display: block;
+	margin: auto;
+	width: 300px;
+}
+.contComments{
+	text-align: center;
+}
+
 
 .red{
 background: rgb(169,3,41); /* Old browsers */
