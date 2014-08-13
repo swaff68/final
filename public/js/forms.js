@@ -8,6 +8,16 @@ var test = function () {
 $(function(){
 
 
+	$.get('/reliefRequets', function(data){
+
+
+			for (requestType in data) {
+
+			var waterRequests = $('<tr>'+'<td>'+'<input type="checkbox" class="water-request-checkbox">'+'</td>'+'</tr>');
+			$('.water-table').append(waterRequests)
+			};
+		
+	})
 
 
 	$.get('/reliefStatus', function(data){
