@@ -152,15 +152,43 @@ var indexController = {
 	contSubmit: function(req, res){
 
 
-		var contributionsArray = req.body
+		var contributionsArray = JSON.parse(req.body.contributions)
+		console.log(JSON.parse(req.body.contributions))
 
 		
-		for (var i = 0; i <contributionsArray.length; i++) {
-		
-			// Request.findOne({_id: contributionsArray[i]._id}, function(err, doc)
-				
 
-		}
+			contributionsArray.map(function(contribution){
+
+				Request.findOne({_id: contribution._id}, function(err, request){
+
+					request.contributions.push(contribution)
+
+					var totalContributions =0;
+
+					for (var i = 0; i <request.contributions.length; i++) {
+					totalContributions += request.contributions[i].quantityContributed || 0 
+					};
+
+
+					console.log(totalContributions, request.quantityRequested)
+					if(totalContributions >= request.quantityRequested){
+						request.requestFullfilled = true
+					}
+					console.log(request.contributions)
+					request.save(function(error, result){
+						// if(error){
+						// 	res.send(500, 'ERROR')
+						// }
+						// res.send(result)
+					})
+
+					
+
+				});
+			})
+		
+					res.send('ok')
+
 
 	}
 };

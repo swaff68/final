@@ -34,6 +34,7 @@ var Request = mongoose.model('Request', {
 	requestType: String,
 	quantityRequested: Number,
 	requestComments: String,
+	requestFullfilled: {type: Boolean, default: false},
 	contributions: [ 
 
 		{

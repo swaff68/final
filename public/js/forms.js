@@ -179,7 +179,7 @@ $(function(){
 
 		geocoder.geocode( { 'address': address}, function(results, status) {
 		  if (status == google.maps.GeocoderStatus.OK) {
-		  	test()
+
 		    map.setCenter(results[0].geometry.location);
 		    var clothesMarker = './pics/clothes.png';
 		    var defaultMarker = null;
@@ -191,7 +191,7 @@ $(function(){
 		    var multiItemMarker = './pics/multiRequest.png';
 		    var image = defaultMarker;
 			var itemCounter = 0;
-		    test()
+
 
 
 		    if(clothes === true && clothesQuantity >0){
@@ -322,10 +322,7 @@ $(function(){
 
 			else{}
 
-		    $.post('/aidSubmit', {fName: fName, lName: lName, orgName: orgName, email: email, phone: phone, address: address, lat: latLong.lat,long: latLong.lng,  waterQuantity: waterQuantity, waterComments: waterComments, mealsQuantity: mealsQuantity, mealsComments: mealsComments, lodgeQuantity: lodgeQuantity, lodgeComments: lodgeComments, petsQuantity: petsQuantity, petsComments: petsComments, transportQuantity: transportQuantity, transportComments: transportComments, clothesQuantity: clothesQuantity, clothesComments: clothesComments}, function(data){
-		    	console.log('data', data)
 
-		    	})
 
 		    $('#myModal').fadeOut();
 		    $('.modal-backdrop').fadeOut();
@@ -364,7 +361,8 @@ $(function(){
 
 		$('.req-for-cont :checked').parents('tr').each(function() {
 			var orginReqId = $(this).data('id')
-			var inputRow = ($(this).siblings( '.contResponseD'))
+			console.log(orginReqId)
+			var inputRow = ($(this).next().next())
 			var inputQuantity = ($(inputRow).find('.qc-text').val())
 			var inputComments = ($(inputRow).find('.cc-text').val())
 	
@@ -388,7 +386,7 @@ $(function(){
 
 
 		$.post('/contSubmit', {
-			contributions: contributionsArray
+			contributions: JSON.stringify(contributionsArray)
 		},function(data){
 		})
 
