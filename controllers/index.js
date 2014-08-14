@@ -71,7 +71,7 @@ var indexController = {
 
 
 		}
-		Request.find({}, function(err, docs){
+		Request.find({requestFullfilled: false}, function(err, docs){
 			//console.log(docs)
 			for (var i = 0; i < docs.length; i++) {
 			//	console.log(docs[i])
@@ -117,7 +117,7 @@ var indexController = {
 
 
 	reliefRequests:function(req, res){
-		Request.find({},function(err, docs){
+		Request.find({requestFullfilled: false},function(err, docs){
 			res.send(docs)
 		})
 	},

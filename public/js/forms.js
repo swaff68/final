@@ -17,7 +17,7 @@ $(function(){
 
 			if (reqType === 'meals') {
 
-			var mealsRequests = $('<tr class="req-for-cont">' + '<td>' + '<input type="checkbox" class="meals-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
+			var mealsRequests = $('<tr class="req-for-cont" data-id="' +data[i]._id+ '" data-req="' +data[i].requestType+ '">' + '<td>' + '<input type="checkbox" class="meals-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
 			$('.meals-table').append(mealsRequests)
 
 
@@ -26,7 +26,7 @@ $(function(){
 
 			if (reqType === 'lodging') {
 
-				var lodgeRequests = $('<tr class="req-for-cont">' + '<td>' + '<input type="checkbox" class="lodge-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
+				var lodgeRequests = $('<tr class="req-for-cont" data-id="' +data[i]._id+ '" data-req="' +data[i].requestType+ '">' + '<td>' + '<input type="checkbox" class="lodge-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
 				$('.lodge-table').append(lodgeRequests)
 
 
@@ -34,7 +34,7 @@ $(function(){
 
 			if (reqType === 'pets') {
 
-				var petsRequests = $('<tr class="req-for-cont">' + '<td>' + '<input type="checkbox" class="pets-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
+				var petsRequests = $('<tr class="req-for-cont" data-id="' +data[i]._id+ '" data-req="' +data[i].requestType+ '">' + '<td>' + '<input type="checkbox" class="pets-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
 				$('.pets-table').append(petsRequests)
 
 
@@ -42,7 +42,7 @@ $(function(){
 
 			if (reqType === 'transportation') {
 
-				var transportRequests = $('<tr class="req-for-cont">' + '<td>' + '<input type="checkbox" class="transport-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
+				var transportRequests = $('<tr class="req-for-cont" data-id="' +data[i]._id+ '" data-req="' +data[i].requestType+ '">' + '<td>' + '<input type="checkbox" class="transport-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
 				$('.transport-table').append(transportRequests)
 
 
@@ -51,7 +51,7 @@ $(function(){
 
 			if (reqType === 'clothing') {
 
-				var clothesRequests = $('<tr class="req-for-cont">' + '<td>' + '<input type="checkbox" class="clothes-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
+				var clothesRequests = $('<tr class="req-for-cont" data-id="' +data[i]._id+ '" data-req="' +data[i].requestType+ '">' + '<td>' + '<input type="checkbox" class="clothes-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
 				$('.clothes-table').append(clothesRequests)
 
 
@@ -388,6 +388,8 @@ $(function(){
 		$.post('/contSubmit', {
 			contributions: JSON.stringify(contributionsArray)
 		},function(data){
+
+			//change map to reflect fulfilled requests
 		})
 
 
