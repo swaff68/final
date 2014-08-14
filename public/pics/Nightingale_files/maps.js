@@ -56,7 +56,7 @@ function initialize() {
       var multiItem = './pics/multiRequest.png';
       var image = defaultMarker;
 
-      // test()
+      test()
 
       if(groups[requestMarker].length >1){
         image = multiItem

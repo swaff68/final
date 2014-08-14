@@ -1,15 +1,21 @@
 
+var test = function () {
+	console.log('test ran!')
+}
+
+
+
 $(function(){
 
 
 	$.get('/reliefRequests', function(data){
-
+		console.log(data)
 
 		for (var i = 0; i < data.length; i++) {
 		var reqType = data[i].requestType
 		if (reqType === 'water') {
 
-			var waterRequests = $('<tr class="req-for-cont" data-id="' +data[i]._id+ '" data-req="' +data[i].requestType+ '">' + '<td>' + '<input type="checkbox" class="water-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
+			var waterRequests = $('<tr class"reqFC" data-id="' +data[i]._id+ '" data-req="' +data[i].requestType+ '">' + '<td>' + '<input type="checkbox" class="water-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
 			$('.water-table').append(waterRequests)
 
 
@@ -17,7 +23,7 @@ $(function(){
 
 			if (reqType === 'meals') {
 
-			var mealsRequests = $('<tr class="req-for-cont">' + '<td>' + '<input type="checkbox" class="meals-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
+			var mealsRequests = $('<tr class"req-for-cont">' + '<td>' + '<input type="checkbox" class="meals-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
 			$('.meals-table').append(mealsRequests)
 
 
@@ -26,7 +32,7 @@ $(function(){
 
 			if (reqType === 'lodging') {
 
-				var lodgeRequests = $('<tr class="req-for-cont">' + '<td>' + '<input type="checkbox" class="lodge-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
+				var lodgeRequests = $('<tr class"req-for-cont">' + '<td>' + '<input type="checkbox" class="lodge-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
 				$('.lodge-table').append(lodgeRequests)
 
 
@@ -34,7 +40,7 @@ $(function(){
 
 			if (reqType === 'pets') {
 
-				var petsRequests = $('<tr class="req-for-cont">' + '<td>' + '<input type="checkbox" class="pets-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
+				var petsRequests = $('<tr class"req-for-cont">' + '<td>' + '<input type="checkbox" class="pets-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
 				$('.pets-table').append(petsRequests)
 
 
@@ -42,7 +48,7 @@ $(function(){
 
 			if (reqType === 'transportation') {
 
-				var transportRequests = $('<tr class="req-for-cont">' + '<td>' + '<input type="checkbox" class="transport-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
+				var transportRequests = $('<tr class"req-for-cont">' + '<td>' + '<input type="checkbox" class="transport-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
 				$('.transport-table').append(transportRequests)
 
 
@@ -51,7 +57,7 @@ $(function(){
 
 			if (reqType === 'clothing') {
 
-				var clothesRequests = $('<tr class="req-for-cont">' + '<td>' + '<input type="checkbox" class="clothes-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
+				var clothesRequests = $('<tr class"req-for-cont">' + '<td>' + '<input type="checkbox" class="clothes-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
 				$('.clothes-table').append(clothesRequests)
 
 
@@ -141,11 +147,11 @@ $(function(){
 
 	$.get('/reliefStatus', function(data){
 		for (requestType in data) {
-
+			console.log(requestType)
 			var aidType = $('<div class="col-md-2 '+ data[requestType].id+'">'+'<div>' +data[requestType].displayName+'</div>'+'<div> '+' <i class="fa '+ data[requestType].icon+ '">'+'</i>'+'<div>'+"Current Requests"+'</div>'+'<div class="curReq">' +data[requestType].requests+'</div>'+'<div>'+"Quantity Still Needed"+'</div>'+'<div class="quanStillNeeded">'+data[requestType].quantity+'</div>'+'</div>');
 			$('.status-table').append(aidType)
 		};
-
+		console.log(data)
 	})
 
 	$('#reqForm').on('submit', function(e){
@@ -164,6 +170,8 @@ $(function(){
 		var pets = $('.pets-checkbox').is(':checked')
 		var transport = $('.transport-checkbox').is(':checked')
 		var clothes = $('.clothes-checkbox').is(':checked')
+
+		// var requestType =$('checkbox').val()
 		var waterQuantity = $('#water-quantity').val()
 		var waterComments = $('#water-comments').val()
 		var mealsQuantity = $('#meals-quantity').val()
@@ -225,6 +233,7 @@ $(function(){
 		    }
 
 		    if(itemCounter >1){
+		      console.log(itemCounter)
 		      image = multiItemMarker
 
 		    }
@@ -238,6 +247,9 @@ $(function(){
 
 		    var latLong = {lat:results[0].geometry.location.lat(), lng:results[0].geometry.location.lng()}
 
+		    // console.log(fName, lName, orgName, email, phone, address, waterQuantity, waterComments, mealsQuantity, mealsComments, lodgeQuantity, lodgeComments, petsQuantity, petsComments, transportQuantity, transportComments, clothesQuantity, clothesComments)
+		    console.log('this is water', water)
+		    console.log('this is meals', meals)
 
 		    var groupId = (+new Date()).toString(36)
 
@@ -322,10 +334,10 @@ $(function(){
 
 			else{}
 
-		    $.post('/aidSubmit', {fName: fName, lName: lName, orgName: orgName, email: email, phone: phone, address: address, lat: latLong.lat,long: latLong.lng,  waterQuantity: waterQuantity, waterComments: waterComments, mealsQuantity: mealsQuantity, mealsComments: mealsComments, lodgeQuantity: lodgeQuantity, lodgeComments: lodgeComments, petsQuantity: petsQuantity, petsComments: petsComments, transportQuantity: transportQuantity, transportComments: transportComments, clothesQuantity: clothesQuantity, clothesComments: clothesComments}, function(data){
-		    	console.log('data', data)
+		    // $.post('/aidSubmit', {fName: fName, lName: lName, orgName: orgName, email: email, phone: phone, address: address, lat: latLong.lat,long: latLong.lng,  waterQuantity: waterQuantity, waterComments: waterComments, mealsQuantity: mealsQuantity, mealsComments: mealsComments, lodgeQuantity: lodgeQuantity, lodgeComments: lodgeComments, petsQuantity: petsQuantity, petsComments: petsComments, transportQuantity: transportQuantity, transportComments: transportComments, clothesQuantity: clothesQuantity, clothesComments: clothesComments}, function(data){
+		    // 	console.log('data', data)
 
-		    	})
+		    // 	})
 
 		    $('#myModal').fadeOut();
 		    $('.modal-backdrop').fadeOut();
@@ -334,6 +346,9 @@ $(function(){
 		  }
 
 		});
+
+		
+		
 
 	})	
 
@@ -359,39 +374,37 @@ $(function(){
 		var orgName = $('#org-name-cont').val()
 		var email = $('#inputEmail1-cont').val()
 		var phone = $('#phone-number-cont').val()
+		var waterQuantity = $('.water-cont-quantity').val()
+		var waterComments = $('.water-cont-comments').val()
+		var mealsQuantity = $('.meals-cont-quantity').val()
+		var mealsComments = $('.meals-cont-comments').val()
+		var lodgeQuantity = $('.lodge-cont-quantity').val()
+		var lodgeComments = $('.lodge-cont-comments').val()
+		var petsQuantity = $('.pets-cont-quantity').val()
+		var petsComments = $('.pets-cont-comments').val()
+		var transportQuantity = $('.transport-cont-quantity').val()
+		var transportComments = $('.transport-cont-comments').val()
+		var clothesQuantity = $('.clothes-cont-quantity').val()
+		var clothesComments = $('.clothes-cont-comments').val()
+		var contQuantity = $('.cont-quantity').val()
+		var contComments = $('.cont-comments').val()
 
-		var contributionsArray = [];
+		// $('.req-for-cont :checked'){
 
-		$('.req-for-cont :checked').parents('tr').each(function() {
-			var orginReqId = $(this).data('id')
-			var inputRow = ($(this).siblings( '.contResponseD'))
-			var inputQuantity = ($(inputRow).find('.qc-text').val())
-			var inputComments = ($(inputRow).find('.cc-text').val())
-	
-			var contSubmission = {
-
-				_id:orginReqId,
-				quantityContributed: inputQuantity,
-				contributionComments: inputComments,
-				contributorFName: fName,
-				contributorLName: lName,
-				contributorOrgName: orgName,
-				contributorEmail: email,
-				contributorPhone: phone
-
-			}
-
-			contributionsArray.push(contSubmission)
-
-		});
+		// 	var requestId = $('.req-for-cont').find('data[i]._id')
+		// 	var contributionData = $('.req-for-cont').find('.cont-quantity, .cont-comments')
 
 
+		// }
 
-		$.post('/contSubmit', {
-			contributions: contributionsArray
-		},function(data){
-		})
 
+		// console.log(fName, lName, orgName, email, phone, waterQuantity, waterComments, mealsQuantity, mealsComments, lodgeQuantity, lodgeComments, petsQuantity, petsComments, transportQuantity, transportComments, clothesQuantity, clothesComments)
+
+		// $.post('/contSubmit', {conttributions:[contributions.length-1].fName: fName} function(data){
+		// 	// console.log('data', data)
+
+		// conttributions:[contributions.length-1].lName: lName, conttributions:[contributions.length-1].orgName: orgName, conttributions:[contributions.length-1].email: email, conttributions:[contributions.length-1].phone: phone, conttributions:[contributions.length-1].quantityContributed: contQuantity, conttributions:[contributions.length-1].contributionComments: contComments
+		// })
 
 			$('#myModal1').fadeOut();
 		    $('.modal-backdrop').fadeOut();

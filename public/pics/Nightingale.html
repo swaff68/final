@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<!-- saved from url=(0023)http://localhost:3430/# -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">.gm-style .gm-style-mtc label,.gm-style .gm-style-mtc div{font-weight:400}</style><style type="text/css">.gm-style .gm-style-cc span,.gm-style .gm-style-cc a,.gm-style .gm-style-mtc div{font-size:10px}</style><link type="text/css" rel="stylesheet" href="./Nightingale_files/css"><style type="text/css">@media print {  .gm-style .gmnoprint, .gmnoprint {    display:none  }}@media screen {  .gm-style .gmnoscreen, .gmnoscreen {    display:none  }}</style><style type="text/css">.gm-style{font-family:Roboto,Arial,sans-serif;font-size:11px;font-weight:400;text-decoration:none}</style>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Nightingale</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="http://localhost:3430/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.5.1.css">
+
+
+    <!-- Custom CSS -->
+    <link href="http://localhost:3430/css/simple-sidebar.css" rel="stylesheet">
+    <link href="http://localhost:3430/styles/main.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+<script type="text/javascript" charset="UTF-8" src="./Nightingale_files/{common,util,geocoder,map}.js"></script><script type="text/javascript" charset="UTF-8" src="./Nightingale_files/{marker}.js"></script><script type="text/javascript" charset="UTF-8" src="./Nightingale_files/{onion}.js"></script><script type="text/javascript" charset="UTF-8" src="./Nightingale_files/{controls,stats}.js"></script></head>
+
+<body class="modal-open" style="padding-right: 15px;">
+    <div class="banner">
+
+                </div>
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+
+
+                <li class="sidebar-brand">
+                    
+                        Boulder Area Floods
+
+                    
+                </li>
+                <li>
+                    <a href="./Nightingale_files/Nightingale.html" data-toggle="modal" data-target="#myModal">
+                        <i class="fa fa-pencil-square-o fa-2x"></i>
+                    Request Aid</a>
+                </li>
+                <li>
+                    <a href="./Nightingale_files/Nightingale.html" data-toggle="modal" data-target="#myModal1">
+                    <i class="fa fa-pencil-square-o fa-2x"></i>
+                    Contribute</a>
+                </li>
+                <li>
+                    <a href="./Nightingale_files/Nightingale.html" id="metricsBtn">
+                    <i class="fa fa-bar-chart-o fa-2x"></i> 
+                    Relief Metrics</a>
+                </li>
+
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row header-row">
+                    <div class="col-lg-12">
+                <img class="ngale-img" src="./Nightingale_files/ngale.png">
+                        <h1>Nightingale - Collaborating to bring disaster relief to those in need </h1>
+                        <p class="byline">This site provides a means to contribute aid to those who have been adversely affected by a natural disaster.</p>
+                        <p class="byline2">If you are "in need" or if you would like to "contribute" to those in need, please begin by using the <span class="bcolor">menu </span> to the left. </p>
+                        <a href="http://localhost:3430/#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                    </div>
+                </div>
+            </div>
+
+              <div class="row status-table">
+
+            <div class="col-md-2 clothing"><div>Clothing</div><div>  <i class="fa  fa fa-group fa-icon"></i><div>Current Requests</div><div class="curReq">1</div><div>Quantity Still Needed</div><div class="quanStillNeeded">600</div></div></div><div class="col-md-2 lodging"><div>Lodging</div><div>  <i class="fa  fa fa-home fa-icon"></i><div>Current Requests</div><div class="curReq">1</div><div>Quantity Still Needed</div><div class="quanStillNeeded">300</div></div></div><div class="col-md-2 meals"><div>Meals</div><div>  <i class="fa  fa fa-cutlery fa-icon"></i><div>Current Requests</div><div class="curReq">1</div><div>Quantity Still Needed</div><div class="quanStillNeeded">200</div></div></div><div class="col-md-2 pet-boarding"><div>Pet Boarding</div><div>  <i class="fa  fa fa-paw fa-icon"></i><div>Current Requests</div><div class="curReq">1</div><div>Quantity Still Needed</div><div class="quanStillNeeded">400</div></div></div><div class="col-md-2 transportation"><div>Transportation</div><div>  <i class="fa  fa fa-car fa-icon"></i><div>Current Requests</div><div class="curReq">1</div><div>Quantity Still Needed</div><div class="quanStillNeeded">500</div></div></div><div class="col-md-2 water"><div>Bottles of Water</div><div>  <i class="fa  fa fa-tint fa-icon"></i><div>Current Requests</div><div class="curReq">6</div><div>Quantity Still Needed</div><div class="quanStillNeeded">1700</div></div></div></div>
+
+            <div id="map-canvas" style="position: relative; overflow: hidden; -webkit-transform: translateZ(0px); background-color: rgb(229, 227, 223);"><div class="gm-style" style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%; z-index: 0;"><div style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%; z-index: 0; cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur) 8 8, default;"><div style="position: absolute; left: 0px; top: 0px; z-index: 1; width: 100%; transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0);"><div style="-webkit-transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div style="position: absolute; left: 0px; top: 0px; z-index: 1;"><div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: 32px; top: 123px;"></div><div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: 288px; top: 123px;"></div><div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: 288px; top: -133px;"></div><div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: 32px; top: -133px;"></div><div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: 32px; top: 379px;"></div><div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: 288px; top: 379px;"></div><div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: -224px; top: 123px;"></div><div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: 544px; top: 123px;"></div><div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: -224px; top: 379px;"></div><div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: 544px; top: -133px;"></div><div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: -224px; top: -133px;"></div><div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: 544px; top: 379px;"></div></div></div></div><div style="-webkit-transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 101; width: 100%;"></div><div style="-webkit-transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 102; width: 100%;"></div><div style="-webkit-transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 103; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: -1;"><div style="position: absolute; left: 0px; top: 0px; z-index: 1;"><div style="width: 256px; height: 256px; overflow: hidden; -webkit-transform: translateZ(0px); position: absolute; left: 32px; top: 123px;"><canvas draggable="false" height="256" width="256" style="-webkit-user-select: none; position: absolute; left: 0px; top: 0px; height: 256px; width: 256px;"></canvas></div><div style="width: 256px; height: 256px; overflow: hidden; -webkit-transform: translateZ(0px); position: absolute; left: 288px; top: 123px;"><canvas draggable="false" height="256" width="256" style="-webkit-user-select: none; position: absolute; left: 0px; top: 0px; height: 256px; width: 256px;"></canvas></div><div style="width: 256px; height: 256px; overflow: hidden; -webkit-transform: translateZ(0px); position: absolute; left: 288px; top: -133px;"><canvas draggable="false" height="256" width="256" style="-webkit-user-select: none; position: absolute; left: 0px; top: 0px; height: 256px; width: 256px;"></canvas></div><div style="width: 256px; height: 256px; overflow: hidden; -webkit-transform: translateZ(0px); position: absolute; left: 32px; top: -133px;"><canvas draggable="false" height="256" width="256" style="-webkit-user-select: none; position: absolute; left: 0px; top: 0px; height: 256px; width: 256px;"></canvas></div><div style="width: 256px; height: 256px; overflow: hidden; -webkit-transform: translateZ(0px); position: absolute; left: 32px; top: 379px;"></div><div style="width: 256px; height: 256px; overflow: hidden; -webkit-transform: translateZ(0px); position: absolute; left: 288px; top: 379px;"></div><div style="width: 256px; height: 256px; overflow: hidden; -webkit-transform: translateZ(0px); position: absolute; left: -224px; top: 123px;"></div><div style="width: 256px; height: 256px; overflow: hidden; -webkit-transform: translateZ(0px); position: absolute; left: 544px; top: 123px;"></div><div style="width: 256px; height: 256px; overflow: hidden; -webkit-transform: translateZ(0px); position: absolute; left: -224px; top: 379px;"></div><div style="width: 256px; height: 256px; overflow: hidden; -webkit-transform: translateZ(0px); position: absolute; left: 544px; top: -133px;"></div><div style="width: 256px; height: 256px; overflow: hidden; -webkit-transform: translateZ(0px); position: absolute; left: -224px; top: -133px;"></div><div style="width: 256px; height: 256px; overflow: hidden; -webkit-transform: translateZ(0px); position: absolute; left: 544px; top: 379px;"></div></div></div></div><div style="position: absolute; z-index: 0; left: 0px; top: 0px;"><div style="overflow: hidden; width: 648px; height: 500px;"><img src="./Nightingale_files/StaticMapService.GetMapImage" style="width: 564px; height: 500px;"></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div style="position: absolute; left: 0px; top: 0px; z-index: 1;"><div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: 32px; top: 123px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="./Nightingale_files/vt" draggable="false" style="width: 256px; height: 256px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; -webkit-transform: translateZ(0px);"></div><div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: 288px; top: 123px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="./Nightingale_files/vt(1)" draggable="false" style="width: 256px; height: 256px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; -webkit-transform: translateZ(0px);"></div><div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: 288px; top: -133px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="./Nightingale_files/vt(2)" draggable="false" style="width: 256px; height: 256px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; -webkit-transform: translateZ(0px);"></div><div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: 32px; top: -133px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="./Nightingale_files/vt(3)" draggable="false" style="width: 256px; height: 256px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; -webkit-transform: translateZ(0px);"></div><div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: 32px; top: 379px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="./Nightingale_files/vt(4)" draggable="false" style="width: 256px; height: 256px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; -webkit-transform: translateZ(0px);"></div><div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: 288px; top: 379px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="./Nightingale_files/vt(5)" draggable="false" style="width: 256px; height: 256px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; -webkit-transform: translateZ(0px);"></div><div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: -224px; top: 123px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="./Nightingale_files/vt(6)" draggable="false" style="width: 256px; height: 256px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; -webkit-transform: translateZ(0px);"></div><div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: 544px; top: 123px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="./Nightingale_files/vt(7)" draggable="false" style="width: 256px; height: 256px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; -webkit-transform: translateZ(0px);"></div><div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: -224px; top: 379px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="./Nightingale_files/vt(8)" draggable="false" style="width: 256px; height: 256px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; -webkit-transform: translateZ(0px);"></div><div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: 544px; top: -133px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="./Nightingale_files/vt(9)" draggable="false" style="width: 256px; height: 256px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; -webkit-transform: translateZ(0px);"></div><div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: -224px; top: -133px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="./Nightingale_files/vt(10)" draggable="false" style="width: 256px; height: 256px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; -webkit-transform: translateZ(0px);"></div><div style="width: 256px; height: 256px; -webkit-transform: translateZ(0px); position: absolute; left: 544px; top: 379px; opacity: 1; transition: opacity 200ms ease-out; -webkit-transition: opacity 200ms ease-out;"><img src="./Nightingale_files/vt(11)" draggable="false" style="width: 256px; height: 256px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; -webkit-transform: translateZ(0px);"></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 2; width: 100%; height: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 3; width: 100%; transform-origin: 0px 0px 0px; transform: matrix(1, 0, 0, 1, 0, 0);"><div style="-webkit-transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 104; width: 100%;"></div><div style="-webkit-transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 105; width: 100%;"></div><div style="-webkit-transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 106; width: 100%;"></div><div style="-webkit-transform: translateZ(0px); position: absolute; left: 0px; top: 0px; z-index: 107; width: 100%;"></div></div></div><div style="margin-left: 5px; margin-right: 5px; z-index: 1000000; position: absolute; left: 0px; bottom: 0px;"><a target="_blank" href="http://maps.google.com/maps?ll=40.045797,-105.179186&z=10&t=p&hl=en-US&gl=US&mapclient=apiv3" title="Click to see this area on Google Maps" style="position: static; overflow: visible; float: none; display: inline;"><div style="width: 62px; height: 26px; cursor: pointer;"><img src="./Nightingale_files/google_white2.png" draggable="false" style="position: absolute; left: 0px; top: 0px; width: 62px; height: 26px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div></a></div><div class="gmnoprint" style="z-index: 1000001; position: absolute; right: 163px; bottom: 0px; width: 122px;"><div draggable="false" class="gm-style-cc" style="-webkit-user-select: none;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="width: auto; height: 100%; margin-left: 1px; background-color: rgb(245, 245, 245);"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right;"><a style="color: rgb(68, 68, 68); text-decoration: none; cursor: pointer; display: none;">Map Data</a><span style="">Map data ©2014 Google</span></div></div></div><div style="padding: 15px 21px; border: 1px solid rgb(171, 171, 171); font-family: Roboto, Arial, sans-serif; color: rgb(34, 34, 34); -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 16px; box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 16px; z-index: 10000002; display: none; width: 256px; height: 148px; position: absolute; left: 93px; top: 160px; background-color: white;"><div style="padding: 0px 0px 10px; font-size: 16px;">Map Data</div><div style="font-size: 13px;">Map data ©2014 Google</div><div style="width: 13px; height: 13px; overflow: hidden; position: absolute; opacity: 0.7; right: 12px; top: 12px; z-index: 10000; cursor: pointer;"><img src="./Nightingale_files/mapcnt3.png" draggable="false" style="position: absolute; left: -2px; top: -336px; width: 59px; height: 492px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div></div><div class="gmnoscreen" style="position: absolute; right: 0px; bottom: 0px;"><div style="font-family: Roboto, Arial, sans-serif; font-size: 11px; color: rgb(68, 68, 68); direction: ltr; text-align: right; background-color: rgb(245, 245, 245);">Map data ©2014 Google</div></div><div class="gmnoprint gm-style-cc" draggable="false" style="z-index: 1000001; position: absolute; -webkit-user-select: none; right: 93px; bottom: 0px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="width: auto; height: 100%; margin-left: 1px; background-color: rgb(245, 245, 245);"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right;"><a href="http://www.google.com/intl/en-US_US/help/terms_maps.html" target="_blank" style="text-decoration: none; cursor: pointer; color: rgb(68, 68, 68);">Terms of Use</a></div></div><div draggable="false" class="gm-style-cc" style="-webkit-user-select: none; position: absolute; right: 0px; bottom: 0px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="width: auto; height: 100%; margin-left: 1px; background-color: rgb(245, 245, 245);"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right;"><a target="_new" title="Report errors in the road map or imagery to Google" href="http://maps.google.com/maps?ll=40.045797,-105.179186&z=10&t=p&hl=en-US&gl=US&mapclient=apiv3&skstate=action:mps_dialog$apiref:1&output=classic" style="font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); text-decoration: none; position: relative;">Report a map error</a></div></div><div class="gmnoprint" draggable="false" controlwidth="78" controlheight="308" style="margin: 5px; -webkit-user-select: none; position: absolute; left: 0px; top: 0px;"><div class="gmnoprint" controlwidth="78" controlheight="80" style="cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur) 8 8, default; width: 78px; height: 78px; position: absolute; left: 0px; top: 0px;"><div class="gmnoprint" controlwidth="78" controlheight="80" style="width: 78px; height: 78px; position: absolute; left: 0px; top: 0px;"><div style="visibility: hidden;"><svg version="1.1" overflow="hidden" width="78px" height="78px" viewBox="0 0 78 78" style="position: absolute; left: 0px; top: 0px;"><circle cx="39" cy="39" r="35" stroke-width="3" fill-opacity="0.2" fill="#f2f4f6" stroke="#f2f4f6"></circle><g transform="rotate(0 39 39)"><rect x="33" y="0" rx="4" ry="4" width="12" height="11" stroke="#a6a6a6" stroke-width="1" fill="#f2f4f6"></rect><polyline points="36.5,8.5 36.5,2.5 41.5,8.5 41.5,2.5" stroke-linejoin="bevel" stroke-width="1.5" fill="#f2f4f6" stroke="#000"></polyline></g></svg></div></div><div class="gmnoprint" controlwidth="59" controlheight="59" style="position: absolute; left: 10px; top: 11px;"><div style="width: 59px; height: 59px; overflow: hidden; position: relative;"><img src="./Nightingale_files/mapcnt3.png" draggable="false" style="position: absolute; left: 0px; top: 0px; width: 59px; height: 492px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"><div title="Pan left" style="position: absolute; left: 0px; top: 20px; width: 19.666666666666668px; height: 19.666666666666668px; cursor: pointer;"></div><div title="Pan right" style="position: absolute; left: 39px; top: 20px; width: 19.666666666666668px; height: 19.666666666666668px; cursor: pointer;"></div><div title="Pan up" style="position: absolute; left: 20px; top: 0px; width: 19.666666666666668px; height: 19.666666666666668px; cursor: pointer;"></div><div title="Pan down" style="position: absolute; left: 20px; top: 39px; width: 19.666666666666668px; height: 19.666666666666668px; cursor: pointer;"></div></div></div></div><div controlwidth="32" controlheight="40" style="cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur) 8 8, default; position: absolute; left: 23px; top: 85px;"><div style="width: 32px; height: 40px; overflow: hidden; position: absolute; left: 0px; top: 0px;"><img src="./Nightingale_files/cb_scout2.png" draggable="false" style="position: absolute; left: -9px; top: -102px; width: 1028px; height: 214px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div><div style="width: 32px; height: 40px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="./Nightingale_files/cb_scout2.png" draggable="false" style="position: absolute; left: -107px; top: -102px; width: 1028px; height: 214px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div><div style="width: 32px; height: 40px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="./Nightingale_files/cb_scout2.png" draggable="false" style="position: absolute; left: -58px; top: -102px; width: 1028px; height: 214px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div><div style="width: 32px; height: 40px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="./Nightingale_files/cb_scout2.png" draggable="false" style="position: absolute; left: -205px; top: -102px; width: 1028px; height: 214px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div></div><div class="gmnoprint" controlwidth="0" controlheight="0" style="opacity: 0.6; display: none; position: absolute;"><div title="Rotate map 90 degrees" style="width: 22px; height: 22px; overflow: hidden; position: absolute; cursor: pointer;"><img src="./Nightingale_files/mapcnt3.png" draggable="false" style="position: absolute; left: -38px; top: -360px; width: 59px; height: 492px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div></div><div class="gmnoprint" controlwidth="25" controlheight="178" style="position: absolute; left: 27px; top: 130px;"><div title="Zoom in" style="width: 23px; height: 24px; overflow: hidden; position: relative; cursor: pointer; z-index: 1;"><img src="./Nightingale_files/mapcnt3.png" draggable="false" style="position: absolute; left: -17px; top: -400px; width: 59px; height: 492px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div><div title="Click to zoom" style="width: 25px; height: 130px; overflow: hidden; position: relative; cursor: pointer; top: -4px;"><img src="./Nightingale_files/mapcnt3.png" draggable="false" style="position: absolute; left: -17px; top: -87px; width: 59px; height: 492px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div><div title="Drag to zoom" style="width: 21px; height: 14px; overflow: hidden; position: absolute; -webkit-transition: top 0.25s ease; transition: top 0.25s ease; z-index: 2; cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur) 8 8, default; left: 2px; top: 60px;"><img src="./Nightingale_files/mapcnt3.png" draggable="false" style="position: absolute; left: 0px; top: -384px; width: 59px; height: 492px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div><div title="Zoom out" style="width: 23px; height: 23px; overflow: hidden; position: relative; cursor: pointer; top: -4px; z-index: 3;"><img src="./Nightingale_files/mapcnt3.png" draggable="false" style="position: absolute; left: -17px; top: -361px; width: 59px; height: 492px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px;"></div></div></div><div id="maptype" class="gmnoprint" style="margin: 5px; z-index: 0; position: absolute; cursor: pointer; right: 0px; top: 0px;"><div class="gm-style-mtc" style="float: left;"><div draggable="false" title="Show street map" style="direction: ltr; overflow: hidden; text-align: center; position: relative; color: rgb(0, 0, 0); font-family: Roboto, Arial, sans-serif; -webkit-user-select: none; font-size: 11px; padding: 1px 6px; border-bottom-left-radius: 2px; border-top-left-radius: 2px; -webkit-background-clip: padding-box; border: 1px solid rgba(0, 0, 0, 0.14902); -webkit-box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px; box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px; min-width: 24px; font-weight: 500; background-color: rgb(255, 255, 255); background-clip: padding-box;">Map</div><div style="z-index: -1; padding-top: 2px; -webkit-background-clip: padding-box; border-width: 0px 1px 1px; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-right-color: rgba(0, 0, 0, 0.14902); border-bottom-color: rgba(0, 0, 0, 0.14902); border-left-color: rgba(0, 0, 0, 0.14902); -webkit-box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px; box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px; position: absolute; left: 0px; top: 19px; text-align: left; display: none; background-color: white; background-clip: padding-box;"><div draggable="false" title="Show street map with terrain" style="color: rgb(0, 0, 0); font-family: Roboto, Arial, sans-serif; -webkit-user-select: none; font-size: 11px; padding: 3px 8px 3px 3px; direction: ltr; text-align: left; white-space: nowrap; background-color: rgb(255, 255, 255);"><span role="checkbox" style="box-sizing: border-box; position: relative; line-height: 0; font-size: 0px; margin: 0px 5px 0px 0px; display: inline-block; border: 1px solid rgb(198, 198, 198); border-top-left-radius: 1px; border-top-right-radius: 1px; border-bottom-right-radius: 1px; border-bottom-left-radius: 1px; width: 13px; height: 13px; vertical-align: middle; background-color: rgb(255, 255, 255);"><div style="position: absolute; left: 1px; top: -2px; width: 13px; height: 11px; overflow: hidden;"><img src="./Nightingale_files/imgs8.png" draggable="false" style="position: absolute; left: -52px; top: -44px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 68px; height: 67px;"></div></span><label style="vertical-align: middle; cursor: pointer;">Terrain</label></div></div></div><div class="gm-style-mtc" style="float: left;"><div draggable="false" title="Show satellite imagery" style="direction: ltr; overflow: hidden; text-align: center; position: relative; color: rgb(86, 86, 86); font-family: Roboto, Arial, sans-serif; -webkit-user-select: none; font-size: 11px; padding: 1px 6px; border-bottom-right-radius: 2px; border-top-right-radius: 2px; -webkit-background-clip: padding-box; border-width: 1px 1px 1px 0px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-top-color: rgba(0, 0, 0, 0.14902); border-right-color: rgba(0, 0, 0, 0.14902); border-bottom-color: rgba(0, 0, 0, 0.14902); -webkit-box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px; box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px; min-width: 43px; background-color: rgb(255, 255, 255); background-clip: padding-box;">Satellite</div><div style="z-index: -1; padding-top: 2px; -webkit-background-clip: padding-box; border-width: 0px 1px 1px; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-right-color: rgba(0, 0, 0, 0.14902); border-bottom-color: rgba(0, 0, 0, 0.14902); border-left-color: rgba(0, 0, 0, 0.14902); -webkit-box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px; box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px; position: absolute; right: 0px; top: 19px; text-align: left; display: none; background-color: white; background-clip: padding-box;"><div draggable="false" title="Zoom in to show 45 degree view" style="color: rgb(184, 184, 184); font-family: Roboto, Arial, sans-serif; -webkit-user-select: none; font-size: 11px; padding: 3px 8px 3px 3px; direction: ltr; text-align: left; white-space: nowrap; display: none; background-color: rgb(255, 255, 255);"><span role="checkbox" style="box-sizing: border-box; position: relative; line-height: 0; font-size: 0px; margin: 0px 5px 0px 0px; display: inline-block; border: 1px solid rgb(241, 241, 241); border-top-left-radius: 1px; border-top-right-radius: 1px; border-bottom-right-radius: 1px; border-bottom-left-radius: 1px; width: 13px; height: 13px; vertical-align: middle; background-color: rgb(255, 255, 255);"><div style="position: absolute; left: 1px; top: -2px; width: 13px; height: 11px; overflow: hidden; display: none;"><img src="./Nightingale_files/imgs8.png" draggable="false" style="position: absolute; left: -52px; top: -44px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 68px; height: 67px;"></div></span><label style="vertical-align: middle; cursor: pointer;">45°</label></div><div draggable="false" title="Show imagery with street names" style="color: rgb(0, 0, 0); font-family: Roboto, Arial, sans-serif; -webkit-user-select: none; font-size: 11px; padding: 3px 8px 3px 3px; direction: ltr; text-align: left; white-space: nowrap; background-color: rgb(255, 255, 255);"><span role="checkbox" style="box-sizing: border-box; position: relative; line-height: 0; font-size: 0px; margin: 0px 5px 0px 0px; display: inline-block; border: 1px solid rgb(198, 198, 198); border-top-left-radius: 1px; border-top-right-radius: 1px; border-bottom-right-radius: 1px; border-bottom-left-radius: 1px; width: 13px; height: 13px; vertical-align: middle; background-color: rgb(255, 255, 255);"><div style="position: absolute; left: 1px; top: -2px; width: 13px; height: 11px; overflow: hidden;"><img src="./Nightingale_files/imgs8.png" draggable="false" style="position: absolute; left: -52px; top: -44px; -webkit-user-select: none; border: 0px; padding: 0px; margin: 0px; width: 68px; height: 67px;"></div></span><label style="vertical-align: middle; cursor: pointer;">Labels</label></div></div></div></div></div></div>
+
+
+
+          <div id="metricsArea">
+            <div id="myfirstchart" style="height: 250px;"></div>
+
+          </div>
+
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    <h2 class="modal-title" id="myModalLabel">Request Aid Form</h2>
+                  </div>
+                  <div class="modal-body">
+
+                <form class=" row form-hor1 form-horizontal" id="reqForm" role="form">
+              <div class="form-group">
+
+                <label for="input-first-name" class="col-sm-4 control-label">First Name</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="first-name" value="Bob">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="input-last-name" class="col-sm-4 control-label">Last Name</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="last-name" value="Smith">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="input-org-name" class="col-sm-4 cl2 control-label">Organization Name</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="org-name" value="Red Cross">
+                </div>
+              </div>
+             <div class="form-group">
+                <label for="inputEmail3" class="col-sm-4 control-label">Email</label>
+                <div class="col-sm-8">
+                  <input type="email" class="form-control" id="inputEmail1" value="john.smith@gmail.com">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="input-phone" class="col-sm-4 control-label">Phone#</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="phone-number" value="703-867-5309">
+                </div>
+              </div>
+             
+              <div class="form-group">
+                <label for="input-street" class="col-sm-4 control-label">Address</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="address" value="415 Bowen, Longmont, CO">
+                </div>
+              </div>
+
+            <label for="aid-type-label" class="cl1 control-label">Requested Aid Type:</label>
+
+              <div class="fg1 form-group">
+                <div class="col-sm-offset-1 col-sm-11">
+                  <div class="checkbox rat">
+                    <label>
+                      <input type="checkbox" class="water-checkbox"> Water
+                    </label>
+                    
+                  <input type="text" class="ratfc form-control " id="water-quantity" value="100">
+                  <textarea class=" ratta form-control" rows="3" id="water-comments">water text</textarea>
+                  </div>
+                  </div>
+                </div>
+                <div class="fg1 form-group">
+                <div class=" col-sm-offset-1 col-sm-11">
+                  <div class="checkbox rat">
+                    <label>
+                      <input type="checkbox" class="meals-checkbox"> Meals
+                    </label>
+                    
+                  <input type="text" class="ratfc form-control " id="meals-quantity" value="200">
+                  <textarea class=" ratta form-control" rows="3" id="meals-comments">meals text</textarea>
+                  </div>
+                </div>
+              </div>
+
+                <div class="fg1 form-group">
+                <div class="col-sm-offset-1 col-sm-11">
+                  <div class="checkbox rat">
+                    <label>
+                      <input type="checkbox" class="lodge-checkbox"> Lodging
+                    </label>
+                    
+                  <input type="text" class="ratfc form-control " id="lodge-quantity" value="300">
+                  <textarea class=" ratta form-control" rows="3" id="lodge-comments">lodge text</textarea>
+                  </div>
+                  </div>
+                </div>
+                <div class="fg1 form-group">
+                <div class="col-sm-offset-1 col-sm-11">
+                  <div class="checkbox rat">
+                    <label>
+                      <input type="checkbox" class="pets-checkbox"> Pets/Boarding
+                    </label>
+                    
+                  <input type="text" class="ratfc form-control " id="pets-quantity" value="400">
+                   <textarea class=" ratta form-control" rows="3" id="pets-comments">pets text</textarea>
+                  </div>
+                </div>
+              </div>
+
+                <div class="fg1 form-group">
+                <div class="col-sm-offset-1 col-sm-11">
+                  <div class="checkbox rat">
+                    <label>
+                      <input type="checkbox" class="transport-checkbox"> Transportation
+                    </label>
+                    
+                  <input type="text" class="ratfc form-control " id="transport-quantity" value="500">
+                   <textarea class=" ratta form-control" rows="3" id="transport-comments">trans text</textarea>
+                  </div>
+                </div>
+                </div>
+                <div class="fg1 form-group">
+                <div class="col-sm-offset-1 col-sm-11">
+                  <div class="checkbox rat">
+                    <label>
+                      <input type="checkbox" class="clothes-checkbox"> Clothes
+                    </label>
+                    
+                  <input type="text" class="ratfc form-control " id="clothes-quantity" value="600">
+                   <textarea class=" ratta form-control" rows="3" id="clothes-comments">clothes text</textarea>
+                  </div>
+                </div>
+              </div>
+
+            </form>
+
+            </div>
+                  <div class="modal-footer">
+                    <button type="submit" form="reqForm" class="btn btn-success aid-request-btn">Submit Aid Request</button>
+                  <button type="reset" form="reqForm" class="aid-cancel-btn btn-danger btn btn-default">Reset Form</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="modal fade in" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: block;">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    <h2 class="modal-title" id="myModalLabel1">Provide Contribution Form</h2>
+                  </div>
+                  <div class="modal-body">
+            <form class=" row form-hor1 form-horizontal" role="form" id="contForm">
+              <div class="form-group">
+
+                <label for="input-first-name" class="col-sm-4 control-label">First Name</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="first-name-cont" value="George">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="input-last-name" class="col-sm-4 control-label">Last Name</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="last-name-cont" value="Jones">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="input-org-name" class="col-sm-4 cl2 control-label">Organization Name</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="org-name-cont" value="US AID">
+                </div>
+              </div>
+             <div class="form-group">
+                <label for="inputEmail3" class="col-sm-4 control-label">Email</label>
+                <div class="col-sm-8">
+                  <input type="email" class="form-control" id="inputEmail1-cont" value="george.jones@gmail.com">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="input-phone" class="col-sm-4 control-label">Phone#</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="phone-number-cont" value="703-867-2112">
+                </div>
+              </div>
+
+            <label for="aid-type-label" class="cl1 control-label">Contribution Type:</label>
+
+              <div class="fg1 form-group">
+                <div class="col-sm-offset-1 col-sm-11">
+                  <div class="checkbox rat">
+                    <label>
+                      <input type="checkbox" class="water-checkbox"> Water
+                    </label>
+                   <table class="table table-condensed table-hover aid-type-table water-table table-striped" style="display: table;">
+                    <tbody><tr class="info">
+                      <th class="ckbx"> Select</th>
+                      <th> Quantity <br> Needed</th>
+                      <th class="comments"> Comments</th>
+                      <th> Name</th>
+                      <th> Org Name</th>
+                      <th> Phone</th>
+                    </tr>
+                  <tr class"reqfc"="" data-id="53eb8f88eaed656e041ec552" data-req="water"><td><input type="checkbox" class="water-request-checkbox cbox"></td><td class="qNeeded">100</td><td class="reqC">water text</td><td>Bob Smith</td><td>Red Cross</td><td>703-867-5309</td></tr><tr class="success"><th colspan="3" class="contResponseH">Quantity to Contribute?</th><th colspan="3" class="contComments">Contribution Comments</th></tr><tr class="contResponseD"><td colspan="3"><input type="text" class="qc-text water-cont-quantity cont-quantity"></td><td colspan="3"><textarea class=" cc-text water-cont-comments cont-comments" rows="1"></textarea></td></tr><tr class"reqfc"="" data-id="53eb9c24f8ea59c412358fa1" data-req="water"><td><input type="checkbox" class="water-request-checkbox cbox"></td><td class="qNeeded">400</td><td class="reqC">fhyrgdg</td><td>Bob Smith</td><td>Red Cross</td><td>703-867-5309</td></tr><tr class"reqfc"="" data-id="53eb9c89f8ea59c412358fa3" data-req="water"><td><input type="checkbox" class="water-request-checkbox cbox"></td><td class="qNeeded">700</td><td class="reqC">the rtegdtshajut thtbr oiejnbfdn uthf fjhiotun thtidjd htgre htgrgej htgerheb htgergevbe hthbee</td><td>Bob Smith</td><td>Red Cross</td><td>703-867-5309</td></tr><tr class"reqfc"="" data-id="53eb9cbcf8ea59c412358fa4" data-req="water"><td><input type="checkbox" class="water-request-checkbox cbox"></td><td class="qNeeded">200</td><td class="reqC">thryegdfd fdhdhjshdfiy shdsuduth wofuhfjh osfhwwuy </td><td>Bob Smith</td><td>Red Cross</td><td>703-867-5309</td></tr><tr class"reqfc"="" data-id="53eab31d1c76f700007cefa2" data-req="water"><td><input type="checkbox" class="water-request-checkbox cbox"></td><td class="qNeeded">100</td><td class="reqC">water text</td><td>Bob Smith</td><td>Red Cross</td><td>703-867-5309</td></tr><tr class"reqfc"="" data-id="53eb9c61f8ea59c412358fa2" data-req="water"><td><input type="checkbox" class="water-request-checkbox cbox"></td><td class="qNeeded">200</td><td class="reqC">the rtegdtshajut thtbr oiejnbfdn uthf fjhiotun thtidjd htgre htgrgej htgerheb htgergevbe hthbee</td><td>Bob Smith</td><td>Red Cross</td><td>703-867-5309</td></tr></tbody></table> 
+                  
+                  </div>
+                  </div>
+                </div>
+                <div class="fg1 form-group">
+                <div class=" col-sm-offset-1 col-sm-11">
+                  <div class="checkbox rat">
+                    <label>
+                      <input type="checkbox" class="meals-checkbox"> Meals
+                    </label>
+                    <table class="table table-condensed table-hover aid-type-table meals-table table-striped">
+                    <tbody><tr class="info">
+                      <th class="ckbx"> Select</th>
+                      <th> Quantity <br> Needed</th>
+                      <th class="comments"> Comments</th>
+                      <th> Name</th>
+                      <th> Org Name</th>
+                      <th> Phone</th>
+                    </tr>
+                  <tr class"req-for-cont"=""><td><input type="checkbox" class="meals-request-checkbox cbox"></td><td class="qNeeded">200</td><td class="reqC">meals text</td><td>Bob Smith</td><td>Red Cross</td><td>703-867-5309</td></tr></tbody></table> 
+                    
+                  </div>
+                </div>
+              </div>
+
+                <div class="fg1 form-group">
+                <div class="col-sm-offset-1 col-sm-11">
+                  <div class="checkbox rat">
+                    <label>
+                      <input type="checkbox" class="lodge-checkbox"> Lodging
+                    </label>
+
+                    <table class="table table-condensed table-hover aid-type-table lodge-table table-striped">
+                    <tbody><tr class="info">
+                      <th class="ckbx"> Select</th>
+                      <th> Quantity <br> Needed</th>
+                      <th class="comments"> Comments</th>
+                      <th> Name</th>
+                      <th> Org Name</th>
+                      <th> Phone</th>
+                    </tr>
+                  <tr class"req-for-cont"=""><td><input type="checkbox" class="lodge-request-checkbox cbox"></td><td class="qNeeded">300</td><td class="reqC">lodge text</td><td>Bob Smith</td><td>Red Cross</td><td>703-867-5309</td></tr></tbody></table> 
+                    
+                  </div>
+                  </div>
+                </div>
+                <div class="fg1 form-group">
+                <div class="col-sm-offset-1 col-sm-11">
+                  <div class="checkbox rat">
+                    <label>
+                      <input type="checkbox" class="pets-checkbox"> Pets/Boarding
+                    </label>
+
+                    <table class="table table-condensed table-hover aid-type-table pets-table table-striped">
+                    <tbody><tr class="info">
+                      <th class="ckbx"> Select</th>
+                      <th> Quantity <br> Needed</th>
+                      <th class="comments"> Comments</th>
+                      <th> Name</th>
+                      <th> Org Name</th>
+                      <th> Phone</th>
+                    </tr>
+                  <tr class"req-for-cont"=""><td><input type="checkbox" class="pets-request-checkbox cbox"></td><td class="qNeeded">400</td><td class="reqC">pets text</td><td>Bob Smith</td><td>Red Cross</td><td>703-867-5309</td></tr></tbody></table> 
+                    
+
+                  </div>
+                </div>
+              </div>
+
+                <div class="fg1 form-group">
+                <div class="col-sm-offset-1 col-sm-11">
+                  <div class="checkbox rat">
+                    <label>
+                      <input type="checkbox" class="transport-checkbox"> Transportation
+                    </label>
+                    <table class="table table-condensed table-hover aid-type-table transport-table table-striped">
+                    <tbody><tr class="info">
+                      <th class="ckbx"> Select</th>
+                      <th> Quantity <br> Needed</th>
+                      <th class="comments"> Comments</th>
+                      <th> Name</th>
+                      <th> Org Name</th>
+                      <th> Phone</th>
+                    </tr>
+                  <tr class"req-for-cont"=""><td><input type="checkbox" class="transport-request-checkbox cbox"></td><td class="qNeeded">500</td><td class="reqC">trans text</td><td>Bob Smith</td><td>Red Cross</td><td>703-867-5309</td></tr></tbody></table> 
+                    
+                  </div>
+                </div>
+                </div>
+                <div class="fg1 form-group">
+                <div class="col-sm-offset-1 col-sm-11">
+                  <div class="checkbox rat">
+                    <label>
+                      <input type="checkbox" class="clothes-checkbox"> Clothes
+                    </label>
+                    
+                  <table class="table table-condensed table-hover aid-type-table clothes-table table-striped">
+                    <tbody><tr class="info">
+                      <th class="ckbx"> Select</th>
+                      <th> Quantity <br> Needed</th>
+                      <th class="comments"> Comments</th>
+                      <th> Name</th>
+                      <th> Org Name</th>
+                      <th> Phone</th>
+                    </tr>
+                  <tr class"req-for-cont"=""><td><input type="checkbox" class="clothes-request-checkbox cbox"></td><td class="qNeeded">600</td><td class="reqC">clothes text</td><td>Bob Smith</td><td>Red Cross</td><td>703-867-5309</td></tr></tbody></table> 
+                  </div>
+                </div>
+              </div>
+              
+            </form>
+
+            </div>
+                  <div class="modal-footer">
+                    <button type="submit" form="contForm" class="btn btn-success cont-provide-btn">Submit Contribution Form</button>
+                  <button type="reset" form="contForm" class="aid-cancel-btn btn-danger btn btn-default">Reset Form</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery Version 1.11.0 -->
+    <script src="./Nightingale_files/jquery-1.11.0.js"></script>
+
+    <script src="./Nightingale_files/js"></script><script src="./Nightingale_files/main.js" type="text/javascript"></script>
+
+    <script src="./Nightingale_files/raphael-min.js"></script>
+
+    <script src="./Nightingale_files/morris-0.5.1.min.js"></script>
+    <script src="./Nightingale_files/underscore-min.js"></script>
+
+    <script src="./Nightingale_files/maps.js"></script>
+    <script src="./Nightingale_files/forms.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./Nightingale_files/bootstrap.min.js"></script>
+
+    <script type="text/javascript"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+
+    
+    </script>
+
+
+
+
+<div class="modal-backdrop fade in"></div></body></html>

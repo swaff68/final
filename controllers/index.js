@@ -150,28 +150,17 @@ var indexController = {
 	},
 
 	contSubmit: function(req, res){
-		// console.log(req.body.fName, req.body.lName, req.body.orgName, req.body.email , req.body.phone , req.body.waterQuantity, req.body.waterComments, req.body.mealsQuantity, req.body.mealsComments, req.body.lodgeQuantity, req.body.lodgeComments, req.body.petsQuantity, req.body.petsComments, req.body.transportQuantity, req.body.transportComments, req.body.clothesQuantity, req.body.clothesComments)
-
-		res.send('success');
 
 
-		var contribution = new Contribution(
-			req.body
-		);
+		var contributionsArray = req.body
 
-	// save the request to the database
-	// (instance method)
-		contribution.save(function(error, result) {
-			if(error) {
-			res.send(500, 'ERROR')
-				}
-			else {
-			res.render('thanks', {
-				'newcontribution': contribution
-				});
-			}
-		});
+		
+		for (var i = 0; i <contributionsArray.length; i++) {
+		
+			// Request.findOne({_id: contributionsArray[i]._id}, function(err, doc)
+				
 
+		}
 
 	}
 };

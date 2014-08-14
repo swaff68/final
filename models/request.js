@@ -40,11 +40,12 @@ var Request = mongoose.model('Request', {
 		contGroupId: String,
 		contributionType:String,
 		quantityContributed: Number,
-		fName: String,
-		lName: String,
-		orgName: String,
-		email: String,
-		phone: String,
+		contributionComments: String,
+		contributorFName: String,
+		contributorLName: String,
+		contributorOrgName: String,
+		contributorEmail: String,
+		contributorPhone: String,
 		dateContributed:{ type: Date, default: Date.now }
 		}
 
