@@ -1,9 +1,18 @@
+var updateStatus = function(){
+		$.get('/reliefStatus', function(data){
+			$('.status-table').empty()
+		
+		for (requestType in data) {
 
-$(function(){
+			var aidType = $('<div class="col-md-2 '+ data[requestType].id+'">'+'<div>' +data[requestType].displayName+'</div>'+'<div> '+' <i class="fa '+ data[requestType].icon+ '">'+'</i>'+'<div>'+"Current Requests"+'</div>'+'<div class="curReq">' +data[requestType].requests+'</div>'+'<div>'+"Quantity Still Needed"+'</div>'+'<div class="quanStillNeeded">'+data[requestType].quantity+'</div>'+'</div>');
 
+			$('.status-table').append(aidType)
+		};
+	})
+}
+var processReliefRequests = function(data){
 
-	$.get('/reliefRequests', function(data){
-
+	$('.water-table, .meals-table, .lodge-table, .pets-table, .transport-table, .clothes-table').find("tr").not(".info").remove()
 
 		for (var i = 0; i < data.length; i++) {
 		var reqType = data[i].requestType
@@ -136,17 +145,20 @@ $(function(){
 				}
 			});
 		
+	}
+$(function(){
+
+	$('#myModal1').on('show.bs.modal', function (e) {
+	$.get('/reliefRequests',processReliefRequests)
 	})
 
+	$.get('/reliefRequests',processReliefRequests) 
+	updateStatus()
 
-	$.get('/reliefStatus', function(data){
-		for (requestType in data) {
 
-			var aidType = $('<div class="col-md-2 '+ data[requestType].id+'">'+'<div>' +data[requestType].displayName+'</div>'+'<div> '+' <i class="fa '+ data[requestType].icon+ '">'+'</i>'+'<div>'+"Current Requests"+'</div>'+'<div class="curReq">' +data[requestType].requests+'</div>'+'<div>'+"Quantity Still Needed"+'</div>'+'<div class="quanStillNeeded">'+data[requestType].quantity+'</div>'+'</div>');
-			$('.status-table').append(aidType)
-		};
 
-	})
+
+
 
 	$('#reqForm').on('submit', function(e){
 		e.preventDefault();
@@ -229,11 +241,11 @@ $(function(){
 
 		    }
 
-		    var marker = new google.maps.Marker({
-		        map: map,
-		        icon: image,
-		        position: results[0].geometry.location
-		    });
+		    // var marker = new google.maps.Marker({
+		    //     map: map,
+		    //     icon: image,
+		    //     position: results[0].geometry.location
+		    // });
 		    console.log(results)
 
 		    var latLong = {lat:results[0].geometry.location.lat(), lng:results[0].geometry.location.lng()}
@@ -251,7 +263,11 @@ $(function(){
 		    		var originVal = $('.water .quanStillNeeded').text()
 		    		originVal = +originVal + lodgeQuantity
 		    		$('.water .quanStillNeeded').text(originVal)
+
+		    		updateStatus()
+		    		updateMarkers()
 		    		}
+
 				)}
 
 			if(meals === true){
@@ -264,6 +280,9 @@ $(function(){
 		    		var originVal = $('.meals .quanStillNeeded').text()
 		    		originVal = +originVal + lodgeQuantity
 		    		$('.meals .quanStillNeeded').text(originVal)
+		    		updateStatus()
+		    		updateMarkers()
+
 		    		}
 				)}
 
@@ -277,6 +296,9 @@ $(function(){
 		    		var originVal = $('.pet-boarding .quanStillNeeded').text()
 		    		originVal = +originVal + lodgeQuantity
 		    		$('.pet-boarding .quanStillNeeded').text(originVal)
+		    		updateStatus()
+		    		updateMarkers()
+
 		    		}
 				)}
 
@@ -291,6 +313,9 @@ $(function(){
 		    		var originVal = $('.lodging .quanStillNeeded').text()
 		    		originVal = +originVal + lodgeQuantity
 		    		$('.lodging .quanStillNeeded').text(originVal)
+		    		updateStatus()
+		    		updateMarkers()
+
 		    		}
 				)}
 
@@ -304,6 +329,9 @@ $(function(){
 		    		var originVal = $('.transportation .quanStillNeeded').text()
 		    		originVal = +originVal + lodgeQuantity
 		    		$('.transportation .quanStillNeeded').text(originVal)
+		    		updateStatus()
+		    		updateMarkers()
+
 		    		}
 				)}
 
@@ -317,6 +345,9 @@ $(function(){
 		    		var originVal = $('.clothing .quanStillNeeded').text()
 		    		originVal = +originVal + lodgeQuantity
 		    		$('.clothing .quanStillNeeded').text(originVal)
+		    		updateStatus()
+		    		updateMarkers()
+		    		
 		    		}
 				)}
 
@@ -388,13 +419,15 @@ $(function(){
 		$.post('/contSubmit', {
 			contributions: JSON.stringify(contributionsArray)
 		},function(data){
+			updateMarkers()
+			updateStatus()
 
-			//change map to reflect fulfilled requests
 		})
 
 
 			$('#myModal1').fadeOut();
 		    $('.modal-backdrop').fadeOut();
+
 
 	})	
 

@@ -11,7 +11,7 @@ var indexController = {
 
 	requestMarkers: function(req, res){
 
-		Request.find({}, function(err, docs){
+		Request.find({requestFullfilled: false}, function(err, docs){
 
 
 			res.send(docs)
@@ -72,17 +72,25 @@ var indexController = {
 
 		}
 		Request.find({requestFullfilled: false}, function(err, docs){
-			//console.log(docs)
+
 			for (var i = 0; i < docs.length; i++) {
-			//	console.log(docs[i])
+
 				if(docs[i].requestType==='water' && docs[i].quantityRequested >0) {
 					requestResults.water.requests+=1
 					requestResults.water.quantity+= docs[i].quantityRequested
+
+					for (var k = 0; k < docs[i].contributions.length; k++) {
+						requestResults.water.quantity-=docs[i].contributions[k].quantityContributed
+					};
+					// -= docs[i].contributions[{quantityContributed}]
 				}
 				if(docs[i].requestType==='clothing' && docs[i].quantityRequested >0) {
 
 					requestResults.clothes.requests+=1
 					requestResults.clothes.quantity+= docs[i].quantityRequested
+					for (var k = 0; k < docs[i].contributions.length; k++) {
+						requestResults.clothes.quantity-=docs[i].contributions[k].quantityContributed
+					};
 
 				}
 
