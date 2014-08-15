@@ -347,7 +347,7 @@ $(function(){
 		    		$('.clothing .quanStillNeeded').text(originVal)
 		    		updateStatus()
 		    		updateMarkers()
-		    		
+
 		    		}
 				)}
 
@@ -451,6 +451,14 @@ $(function(){
 		  // Labels for the ykeys -- will be displayed when you hover over the
 		  // chart.
 		  labels: ['Value']
+		});
+		    new Morris.Donut({
+  		element: 'donut-example',
+  		data: [
+	    {label: "Download Sales", value: 12},
+	    {label: "In-Store Sales", value: 30},
+	    {label: "Mail-Order Sales", value: 20}
+	  	]
 		});
 
 	})
