@@ -11,37 +11,50 @@ var sendMessage = function(request, contribution){
 
 
 	var requestorMessage = 
-		  'Message from Nightingale Relief Assistance, - '
+		  'Message from Nightingale Relief Assistance Team, - '
+		+ request.fName + ', ' + 'good news!  '
 		+ contribution.contributorFName + ' ' + contribution.contributorLName + ' '
-		+ 'has contributed '
-		+ contribution.quantityContributed + ' '
-		+ 'towards '
-		+ request.fName + ' ' + request.lName + "'s "
-		+ request.requestType + ' request.  '
+		+ 'has contributed ' + contribution.quantityContributed + ' ' + request.requestType
+		+ ' towards your '+ request.requestType + ' request.  '
 
-		+ "Here is a link to the aid requestor's comments.  "
 
-		+ "Here is a link to the contributor's comments.  "
+		+ "Here is a link to " + contribution.contributorFName + "'s " + 'contribution comments.  '
 
-		+ contribution.contributorFName + ' phone# is ' + contribution.contributorPhone + '.  '
+		+ contribution.contributorFName + "'s  phone# is " + contribution.contributorPhone + '.  '
+
+		+ 'Regards,  '
+		+ 'The Nightingale Relief Assistance Team'
+
+	var contributorMessage = 
+		  'Message from Nightingale Relief Assistance Team, - '
+		+ contribution.contributorFName
+		+ ', Thank you for your ' + contribution.quantityContributed + ' ' + request.requestType 
+		+ ' contribution to '
+		+ request.fName + ' ' + request.lName + "'s " + request.requestType + ' request.  '
+
+		+ 'Here is a link to ' + request.fName + "'s " + 'aid request comments.  '
 
 		+ request.fName + "'s" + ' phone# is ' + request.phone + '.  '
 
 		+ 'Regards,  '
 		+ 'The Nightingale Relief Assistance Team'
 
+
+
 	client.messages.create({
 		    body: requestorMessage,
-		    to: "7036630561",
+		    to: request.phone,
 		    // request.phone
 		    from: "7033489714"
 		}, function(err, message) {
+		    console.log('err:' ,err)
+		    console.log('message:' ,message)
 		    process.stdout.write(message.sid);
 		});
 
 	client.messages.create({
 		    body: contributorMessage,
-		    to: "7036630561",
+		    to: contribution.contributorPhone,
 		    // contribution.contributorPhone
 		    from: "7033489714"
 		}, function(err, message) {

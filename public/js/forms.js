@@ -355,8 +355,8 @@ $(function(){
 
 
 
-		    $('#myModal').fadeOut();
-		    $('.modal-backdrop').fadeOut();
+		    $('#myModal').modal('hide')
+
 		  } else {
 		    alert('Geocode was not successful for the following reason: ' + status);
 		  }
@@ -425,12 +425,12 @@ $(function(){
 		})
 
 
-			$('#myModal1').fadeOut();
-		    $('.modal-backdrop').fadeOut();
+			$('#myModal1').modal('hide')
+
 
 
 	})	
 
-	
+
 
 })
