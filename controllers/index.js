@@ -1,6 +1,11 @@
 var Request = require('../models/request.js')
+//var twilio = require("path/to/twilio-node/lib");
 // var Contribution = require('../models/contribute.js')
 
+var accountSid = 'ACa95b3f3758879b557dd75a2f33680c7d';
+var authToken = "10034e5971d871bf22b35c3f784430fa";
+var client = require('twilio')(accountSid, authToken);
+ 
 
 var indexController = {
 	index: function(req, res) {
@@ -164,7 +169,14 @@ var indexController = {
 	},
 
 	contSubmit: function(req, res){
-
+		 
+		client.messages.create({
+		    body: "Hello Swaff You Did it!",
+		    to: "7036630561",
+		    from: "7033489714"
+		}, function(err, message) {
+		    process.stdout.write(message.sid);
+		});
 
 		var contributionsArray = JSON.parse(req.body.contributions)
 		console.log(JSON.parse(req.body.contributions))

@@ -6,6 +6,7 @@ mongoose.connect('mongodb://localhost/nightingale');
 
 
 
+
 var app = express();
 app.set('view engine', 'jade');
 app.set('views', __dirname + '/views');
