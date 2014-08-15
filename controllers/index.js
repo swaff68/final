@@ -1,10 +1,16 @@
 var Request = require('../models/request.js')
 // var Contribution = require('../models/contribute.js')
 
+
 var indexController = {
 	index: function(req, res) {
 
-		res.render('index')
+		Request.find({}, function(err, docs){
+			console.log(docs)
+			res.render('index', {
+				requests: docs				
+			})
+		})
 		
 	},
 
@@ -199,6 +205,10 @@ var indexController = {
 
 
 	}
+
+
+
+
 };
 
 module.exports = indexController;

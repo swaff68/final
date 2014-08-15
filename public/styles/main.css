@@ -55,7 +55,7 @@ html, body{
 
 .fa-icon  {
 	border: 1px solid grey;
-	background-color: rgb(51, 141, 255);
+	background-color: rgb(63, 175, 255);
 
 /*	color: skyblue;*/
 	padding: 10px;
@@ -124,15 +124,32 @@ margin-left: 5px;
 
 #sidebar-wrapper{
 	overflow: hidden;
+	top:50px;
+	height: auto;
 }
 
+.sidebar-nav{
+	position: static;
+}
 #map-canvas{
 	width: 70%;
 	height: 500px;
 }
 
-#myfirstchart, #donut-example{
-	width: 20%;
+.chart-label{
+	font-size: 20px;
+	border: 1px solid grey;
+	border-radius: 10px;
+	box-shadow: 2px 3px grey;
+	display: inline-block;
+
+}
+#metricsArea{
+	display: none;
+}
+
+#requetsByType{
+display: inline-block;
 }
 
 .bcolor{

@@ -1,22 +1,8 @@
-extends layout
-
-block content
-	.div#header
-		
-		img(src="../pics/ngale.png").mainPic
-
-		p.mainName Nightingale
-		p.byline Providing emergency assistance to those in need
-
-	.div#sidebar
-		
-
-
+include indexbackup.html
+script(src='http://code.jquery.com/jquery-2.1.1.min.js')
+script(src='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')
+script.
+	var requests = !{JSON.stringify(requests)}
+script(src='scripts/charts.js')
 	
-
-	
-
-
-	
-block scripts
-	script(src='/scripts/index.js')
+include closingtags.html
