@@ -5,13 +5,58 @@ var Request = require('../models/request.js')
 var accountSid = 'ACa95b3f3758879b557dd75a2f33680c7d';
 var authToken = "10034e5971d871bf22b35c3f784430fa";
 var client = require('twilio')(accountSid, authToken);
+
+
+var sendMessage = function(request, contribution){
+
+
+	var requestorMessage = 
+		  'Message from Nightingale Relief Assistance, - '
+		+ contribution.contributorFName + ' ' + contribution.contributorLName + ' '
+		+ 'has contributed '
+		+ contribution.quantityContributed + ' '
+		+ 'towards '
+		+ request.fName + ' ' + request.lName + "'s "
+		+ request.requestType + ' request.  '
+
+		+ "Here is a link to the aid requestor's comments.  "
+
+		+ "Here is a link to the contributor's comments.  "
+
+		+ contribution.contributorFName + ' phone# is ' + contribution.contributorPhone + '.  '
+
+		+ request.fName + "'s" + ' phone# is ' + request.phone + '.  '
+
+		+ 'Regards,  '
+		+ 'The Nightingale Relief Assistance Team'
+
+	client.messages.create({
+		    body: requestorMessage,
+		    to: "7036630561",
+		    // request.phone
+		    from: "7033489714"
+		}, function(err, message) {
+		    process.stdout.write(message.sid);
+		});
+
+	client.messages.create({
+		    body: contributorMessage,
+		    to: "7036630561",
+		    // contribution.contributorPhone
+		    from: "7033489714"
+		}, function(err, message) {
+		    process.stdout.write(message.sid);
+		});
+
+	console.log('sendMessage', request, contribution)
+}
  
 
 var indexController = {
 	index: function(req, res) {
 
 		Request.find({}, function(err, docs){
-			console.log(docs)
+			// console.log(docs)
 			res.render('index', {
 				requests: docs				
 			})
@@ -32,7 +77,7 @@ var indexController = {
 
 
 	reliefStatus: function(req, res){
-		console.log("Request called");
+		// console.log("Request called");
 		var requestResults = {
 			clothes :{
 				displayName: "Clothing",
@@ -93,7 +138,7 @@ var indexController = {
 					for (var k = 0; k < docs[i].contributions.length; k++) {
 						requestResults.water.quantity-=docs[i].contributions[k].quantityContributed
 					};
-					// -= docs[i].contributions[{quantityContributed}]
+
 				}
 				if(docs[i].requestType==='clothing' && docs[i].quantityRequested >0) {
 
@@ -127,7 +172,7 @@ var indexController = {
 
 				
 			};
-			console.log(requestResults)
+			// console.log(requestResults)
 			res.send(requestResults)
 		})
 
@@ -169,17 +214,13 @@ var indexController = {
 	},
 
 	contSubmit: function(req, res){
-		 
-		client.messages.create({
-		    body: "Hello Swaff You Did it!",
-		    to: "7036630561",
-		    from: "7033489714"
-		}, function(err, message) {
-		    process.stdout.write(message.sid);
-		});
+
+
+
+		
 
 		var contributionsArray = JSON.parse(req.body.contributions)
-		console.log(JSON.parse(req.body.contributions))
+
 
 		
 
@@ -189,6 +230,7 @@ var indexController = {
 
 					request.contributions.push(contribution)
 
+
 					var totalContributions =0;
 
 					for (var i = 0; i <request.contributions.length; i++) {
@@ -196,12 +238,13 @@ var indexController = {
 					};
 
 
-					console.log(totalContributions, request.quantityRequested)
+
 					if(totalContributions >= request.quantityRequested){
 						request.requestFullfilled = true
 					}
-					console.log(request.contributions)
+
 					request.save(function(error, result){
+						sendMessage(request, contribution);
 						// if(error){
 						// 	res.send(500, 'ERROR')
 						// }
