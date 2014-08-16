@@ -84,5 +84,16 @@
 	 		{label: "Lodging Requests", value: lodgeRequests.length},
 	 		]
 	 	});
+	 	new Morris.Donut({
+	 		element: 'requestsByType2',
+	 		data: [
+	 		{label: "WaterRequests", value: waterRequests.length},
+	 		{label: "Pets Requests", value: petsRequests.length},
+	 		{label: "Meals Requests", value: mealsRequests.length},
+	 		{label: "Clothing Requests", value: clothingRequests.length},
+	 		{label: "Transportation Requests", value: transportRequests.length},
+	 		{label: "Lodging Requests", value: lodgeRequests.length},
+	 		]
+	 	});
 
 	 })

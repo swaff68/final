@@ -137,21 +137,18 @@ margin-left: 5px;
 	height: 500px;
 }
 
+.row{
+	border-bottom: 1px solid lightgrey;
+}
+
 .chart-label{
-	font-size: 20px;
-	border: 1px solid grey;
-	border-radius: 10px;
-	box-shadow: 2px 3px grey;
-	display: inline-block;
+text-align: center;
 
 }
 #metricsArea{
 	display: none;
 }
 
-#requetsByType{
-display: inline-block;
-}
 
 .bcolor{
 	background-color: black;
