@@ -160,7 +160,7 @@ $(function(){
 $('#map-canvas').before($('#requests-table'))
 
 $('#requestsBtn').on('click', function(){
-		$('#requests-table').show()
+		$('#requests-table').toggle()
 	});
 
 

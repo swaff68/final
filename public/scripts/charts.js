@@ -40,8 +40,13 @@
 	}
 	console.log(waterRequests.length)
 
-	$('#metricsBtn').one('click', function(){
-		$('#metricsArea').show()
+	$('#metricsBtn').on('click', function(){
+		$('#requestsByType').empty()
+		$('#requestsByType1').empty()
+		$('#requestsByType2').empty()
+		$('#myfirstchart').empty()
+
+		$('#metricsArea').toggle()
 	 	new Morris.Line({
 	 	// ID of the element in which to draw the chart.
 	 		element: 'myfirstchart',
