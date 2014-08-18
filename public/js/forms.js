@@ -18,7 +18,7 @@ var processReliefRequests = function(data){
 		var reqType = data[i].requestType
 		if (reqType === 'water') {
 
-			var waterRequests = $('<tr class="req-for-cont" data-id="' +data[i]._id+ '" data-req="' +data[i].requestType+ '">' + '<td>' + '<input type="checkbox" class="water-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
+			var waterRequests = $('<tr class="req-for-cont" data-id="' +data[i]._id+ '" data-req="' +data[i].requestType+ '">' + '<td>' + '<input type="checkbox" class="water-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + (data[i].quantityRequested - data[i].totalContributed) + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
 			$('.water-table').append(waterRequests)
 
 
@@ -26,7 +26,7 @@ var processReliefRequests = function(data){
 
 			if (reqType === 'meals') {
 
-			var mealsRequests = $('<tr class="req-for-cont" data-id="' +data[i]._id+ '" data-req="' +data[i].requestType+ '">' + '<td>' + '<input type="checkbox" class="meals-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
+			var mealsRequests = $('<tr class="req-for-cont" data-id="' +data[i]._id+ '" data-req="' +data[i].requestType+ '">' + '<td>' + '<input type="checkbox" class="meals-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + (data[i].quantityRequested - data[i].totalContributed) + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
 			$('.meals-table').append(mealsRequests)
 
 
@@ -35,7 +35,7 @@ var processReliefRequests = function(data){
 
 			if (reqType === 'lodging') {
 
-				var lodgeRequests = $('<tr class="req-for-cont" data-id="' +data[i]._id+ '" data-req="' +data[i].requestType+ '">' + '<td>' + '<input type="checkbox" class="lodge-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
+				var lodgeRequests = $('<tr class="req-for-cont" data-id="' +data[i]._id+ '" data-req="' +data[i].requestType+ '">' + '<td>' + '<input type="checkbox" class="lodge-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + (data[i].quantityRequested - data[i].totalContributed) + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
 				$('.lodge-table').append(lodgeRequests)
 
 
@@ -43,7 +43,7 @@ var processReliefRequests = function(data){
 
 			if (reqType === 'pets') {
 
-				var petsRequests = $('<tr class="req-for-cont" data-id="' +data[i]._id+ '" data-req="' +data[i].requestType+ '">' + '<td>' + '<input type="checkbox" class="pets-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
+				var petsRequests = $('<tr class="req-for-cont" data-id="' +data[i]._id+ '" data-req="' +data[i].requestType+ '">' + '<td>' + '<input type="checkbox" class="pets-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + (data[i].quantityRequested - data[i].totalContributed) + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
 				$('.pets-table').append(petsRequests)
 
 
@@ -51,7 +51,7 @@ var processReliefRequests = function(data){
 
 			if (reqType === 'transportation') {
 
-				var transportRequests = $('<tr class="req-for-cont" data-id="' +data[i]._id+ '" data-req="' +data[i].requestType+ '">' + '<td>' + '<input type="checkbox" class="transport-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
+				var transportRequests = $('<tr class="req-for-cont" data-id="' +data[i]._id+ '" data-req="' +data[i].requestType+ '">' + '<td>' + '<input type="checkbox" class="transport-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + (data[i].quantityRequested - data[i].totalContributed) + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
 				$('.transport-table').append(transportRequests)
 
 
@@ -60,8 +60,9 @@ var processReliefRequests = function(data){
 
 			if (reqType === 'clothing') {
 
-				var clothesRequests = $('<tr class="req-for-cont" data-id="' +data[i]._id+ '" data-req="' +data[i].requestType+ '">' + '<td>' + '<input type="checkbox" class="clothes-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + data[i].quantityRequested + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
+				var clothesRequests = $('<tr class="req-for-cont" data-id="' +data[i]._id+ '" data-req="' +data[i].requestType+ '">' + '<td>' + '<input type="checkbox" class="clothes-request-checkbox cbox">' + '</td>' + '<td class="qNeeded">' + (data[i].quantityRequested - data[i].totalContributed) + '</td>'+ '<td class="reqC">' + data[i].requestComments + '</td>' + '<td>' + data[i].fName +' '+ data[i].lName + '</td>'+ '<td>' + data[i].orgName + '</td>' + '<td>' + data[i].phone + '</td>'+ '</tr>');
 				$('.clothes-table').append(clothesRequests)
+				console.log(data[i].totalContributed)
 
 
 			};
@@ -156,7 +157,11 @@ $(function(){
 	updateStatus()
 
 
+$('#map-canvas').before($('#requests-table'))
 
+$('#requestsBtn').on('click', function(){
+		$('#requests-table').show()
+	});
 
 
 

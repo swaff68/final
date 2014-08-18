@@ -59,6 +59,11 @@
                     Contribute</a>
                 </li>
                 <li>
+                    <a href="#" id="requestsBtn">
+                    <i class="fa fa-share-alt fa-2x"></i> 
+                    Relief Requests</a>
+                </li>
+                <li>
                     <a href="#" id="metricsBtn">
                     <i class="fa fa-bar-chart-o fa-2x"></i> 
                     Relief Metrics</a>
@@ -86,19 +91,54 @@
 
             </div>
 
+
             <div id="map-canvas"></div>
 
 
-
           <div id="metricsArea">
-            <div id="myfirstchart" style="height: 250px;"></div>
-            <div class="chart-label">
-            Total Requests by Type<div id="requestsByType" style="height: 250px;"></div>
+            <div class="row">
+              <div class="col-sm-4">
+                  <div>
+                    <h4 class="chart-label">Total Requests by Type</h4>
+                    <div id="requestsByType" style="height: 200px;"></div>
+                  </div>
+              </div>
+              <div class="col-sm-4">
+                  <div>
+                    <h4 class="chart-label">Total Requested Quantity by Type</h4>
+                    <div id="requestsByType1" style="height: 200px;"></div>
+                  </div>
+              </div>
+              <div class="col-sm-4">
+                  <div>
+                    <h4 class="chart-label">Top 10 Contributing Organizations</h4>
+                    <div id="requestsByType2" style="height: 200px;"></div>
+                  </div>
+              </div>
             </div>
-            <div class="chart-label">
-            Total Requests by Type<div id="requestsByType1" style="height: 350px;"></div>
+            <div class="row">
+              <div class="col-sm-3">
+                  <div>
+                    <h4 class="chart-label"></h4>
+                    <div id="requestsByType1" style="height: 200px;"></div>
+                  </div>
+              </div>
+              <div class="col-sm-6">
+                  <div>
+                    <h4 class="chart-label">Requests Fullfilled Within:</h4>
+                    <div id="myfirstchart" style="height: 250px;"></div>
+                  </div>
+              </div>
+              <div class="col-sm-3">
+                  <div>
+                    <h4 class="chart-label"></h4>
+                    <div id="requestsByType1" style="height: 200px;"></div>
+                  </div>
+              </div>
             </div>
+
           </div>
+
 
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog">
@@ -420,6 +460,161 @@
               </div>
             </div>
         </div>
+
+
+
+        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h2 class="modal-title" id="myModalLabel1">All Aid Requests</h2>
+                  </div>
+                  <div class="modal-body">
+            <form class=" row form-hor1 form-horizontal" role="form" id="aid-requests-table">
+              
+              
+
+            <label for="aid-type-label" class="cl1 control-label">Aid Type:</label>
+
+              <div class="fg1 form-group">
+                <div class="col-sm-offset-1 col-sm-11">
+                  <div class="checkbox rat">
+                    <label>
+                      <input type="checkbox" class="water-checkbox"> Water
+                    </label>
+                   <table class="table table-condensed table-hover aid-type-table water-table table-striped">
+                    <tr class="info">
+                      <th class="ckbx"> Select</th>
+                      <th> Quantity <br> Needed</th>
+                      <th class="comments"> Comments</th>
+                      <th> Name</th>
+                      <th> Org Name</th>
+                      <th> Phone</th>
+                    </tr>
+                  </table> 
+                  
+                  </div>
+                </div>
+              </div>
+              <div class="fg1 form-group">
+                <div class=" col-sm-offset-1 col-sm-11">
+                  <div class="checkbox rat">
+                    <label>
+                      <input type="checkbox" class="meals-checkbox"> Meals
+                    </label>
+                    <table class="table table-condensed table-hover aid-type-table meals-table table-striped">
+                    <tr class="info">
+                      <th class="ckbx"> Select</th>
+                      <th> Quantity <br> Needed</th>
+                      <th class="comments"> Comments</th>
+                      <th> Name</th>
+                      <th> Org Name</th>
+                      <th> Phone</th>
+                    </tr>
+                  </table> 
+                    
+                  </div>
+                </div>
+              </div>
+
+              <div class="fg1 form-group">
+                <div class="col-sm-offset-1 col-sm-11">
+                  <div class="checkbox rat">
+                    <label>
+                      <input type="checkbox" class="lodge-checkbox"> Lodging
+                    </label>
+
+                  <table class="table table-condensed table-hover aid-type-table lodge-table table-striped">
+                    <tr class="info">
+                      <th class="ckbx"> Select</th>
+                      <th> Quantity <br> Needed</th>
+                      <th class="comments"> Comments</th>
+                      <th> Name</th>
+                      <th> Org Name</th>
+                      <th> Phone</th>
+                    </tr>
+                  </table> 
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="fg1 form-group">
+                <div class="col-sm-offset-1 col-sm-11">
+                  <div class="checkbox rat">
+                    <label>
+                      <input type="checkbox" class="pets-checkbox"> Pets/Boarding
+                    </label>
+
+                    <table class="table table-condensed table-hover aid-type-table pets-table table-striped">
+                    <tr class="info">
+                      <th class="ckbx"> Select</th>
+                      <th> Quantity <br> Needed</th>
+                      <th class="comments"> Comments</th>
+                      <th> Name</th>
+                      <th> Org Name</th>
+                      <th> Phone</th>
+                    </tr>
+                  </table> 
+                    
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="fg1 form-group">
+                <div class="col-sm-offset-1 col-sm-11">
+                  <div class="checkbox rat">
+                    <label>
+                      <input type="checkbox" class="transport-checkbox"> Transportation
+                    </label>
+                    <table class="table table-condensed table-hover aid-type-table transport-table table-striped">
+                    <tr class="info">
+                      <th class="ckbx"> Select</th>
+                      <th> Quantity <br> Needed</th>
+                      <th class="comments"> Comments</th>
+                      <th> Name</th>
+                      <th> Org Name</th>
+                      <th> Phone</th>
+                    </tr>
+                  </table> 
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="fg1 form-group">
+                <div class="col-sm-offset-1 col-sm-11">
+                  <div class="checkbox rat">
+                    <label>
+                      <input type="checkbox" class="clothes-checkbox"> Clothes
+                    </label>
+                    
+                  <table class="table table-condensed table-hover aid-type-table clothes-table table-striped">
+                    <tr class="info">
+                      <th class="ckbx"> Select</th>
+                      <th> Quantity <br> Needed</th>
+                      <th class="comments"> Comments</th>
+                      <th> Name</th>
+                      <th> Org Name</th>
+                      <th> Phone</th>
+                    </tr>
+                  </table> 
+                  </div>
+                </div>
+              </div>
+              
+            </form>
+
+            </div>
+                  <div class="modal-footer">
+                    <button type="submit" form="contForm" class="btn btn-success cont-provide-btn"  >Submit Contribution Form</button>
+                  <button type="reset" form="contForm" class="aid-cancel-btn btn-danger btn btn-default">Reset Form</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+            </div>
+          </div>
+        </div>
+        </div>
         <!-- /#page-content-wrapper -->
 
     </div>
@@ -439,7 +634,7 @@
     <script src="js/forms.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <!-- // <script src="js/bootstrap.min.js"></script> -->
 
     <script type="text/javascript"></script>
 
@@ -454,6 +649,68 @@
     </script>
 
 
+<div id="requests-table" class="panel-group">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title"><a data-toggle="collapse" data-parent="#requests-table" href="#collapseOne">Clothing Requests</a></h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse">
+      <div class="panel-body">
+        <table class="clothing-req-table">
+          <tr class="request-header">
+            <th class="req req-quantity">Quantity Requested</th>
+            <th class="req req-contributed">Request Contributions</th>
+            <th class="req req-comments">Comments</th>
+            <th class="req req-name">Name</th>
+            <th class="req req-address">Address</th>
+            <th class="req req-phone">Phone#</th>
+            <th class="req req-email">Email</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title"><a data-toggle="collapse" data-parent="#requests-table" href="#collapseTwo">Lodging Requests</a></h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse">
+      <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title"><a data-toggle="collapse" data-parent="#requests-table" href="#collapseThree">Meal Requests</a></h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse">
+      <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title"><a data-toggle="collapse" data-parent="#requests-table" href="#collapseThree">Pet Boarding Requests</a></h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse">
+      <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title"><a data-toggle="collapse" data-parent="#requests-table" href="#collapseThree">Transportation Requests</a></h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse">
+      <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title"><a data-toggle="collapse" data-parent="#requests-table" href="#collapseThree">Water Requests</a></h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse">
+      <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+    </div>
+  </div>
+</div>
 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script>var requests = </script>

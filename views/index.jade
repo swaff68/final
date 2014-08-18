@@ -1,4 +1,243 @@
 include indexbackup.html
+
+#requests-table.panel-group
+		.panel.panel-default
+				.panel-heading
+					h4.panel-title
+						a(data-toggle='collapse', data-parent='#requests-table', href='#collapseOne')
+							| Clothing Requests
+				#collapseOne.panel-collapse.collapse
+					.panel-body
+						table.clothing-req-table.table
+							for request in clothingRequests
+								tr.request-header.info.table-striped
+									th.req.req-quantity Quantity Requested
+									th.req.req-contributed Request Contributions
+									th.req Comments
+									th.req.req-name Name
+									th.req.req-phone Phone#
+									th.req.req-email Email
+								tr.clothing-request.table-striped
+									td.req.req-quantity= request.quantityRequested
+									td.req.req-contributed= request.totalContributed
+									td.req.req-comments= request.requestComments
+									td.req.req-name= request.fName + ' ' + request.lName
+									td.req.req-phone= request.phone
+									td.req.req-email= request.email
+								if request.contributions.length >0
+									tr.clothing-request-contribution.success
+										th.empty
+										th.con.con-quantity Quantity Contributed
+										th.con.con-comments Comments
+										th.con.con-name Name
+										th.con.con-phone Phone#
+										th.con.con-email Email
+								for contrib in request.contributions
+											tr.clothing-contribution.table-striped
+												td.empty
+												td.con.con-quantity= contrib.quantityContributed
+												td.con.con-comments= contrib.contributionComments
+												td.con.con-name= contrib.contributorFName + ' ' + contrib.contributorLName
+												td.con.con-phone= contrib.contributorPhone
+												td.con.con-email= contrib.contributorEmail
+			.panel.panel-default
+				.panel-heading
+					h4.panel-title
+						a(data-toggle='collapse', data-parent='#requests-table', href='#collapseTwo')
+							| Lodging Requests
+				#collapseTwo.panel-collapse.collapse
+					.panel-body
+						table.lodge-req-table.table
+							for request in lodgeRequests
+								tr.request-header.info.table-striped
+									th.req.req-quantity Quantity Requested
+									th.req.req-contributed Request Contributions
+									th.req Comments
+									th.req.req-name Name
+									th.req.req-phone Phone#
+									th.req.req-email Email
+								tr.lodge-request.table-striped
+									td.req.req-quantity= request.quantityRequested
+									td.req.req-contributed= request.totalContributed
+									td.req.req-comments= request.requestComments
+									td.req.req-name= request.fName + ' ' + request.lName
+									td.req.req-phone= request.phone
+									td.req.req-email= request.email
+								if request.contributions.length >0
+									tr.lodge-request-contribution.success
+										th.empty
+										th.con.con-quantity Quantity Contributed
+										th.con.con-comments Comments
+										th.con.con-name Name
+										th.con.con-phone Phone#
+										th.con.con-email Email
+								for contrib in request.contributions
+											tr.lodge-contribution.table-striped
+												td.empty
+												td.con.con-quantity= contrib.quantityContributed
+												td.con.con-comments= contrib.contributionComments
+												td.con.con-name= contrib.contributorFName + ' ' + contrib.contributorLName
+												td.con.con-phone= contrib.contributorPhone
+												td.con.con-email= contrib.contributorEmail
+			.panel.panel-default
+				.panel-heading
+					h4.panel-title
+						a(data-toggle='collapse', data-parent='#requests-table', href='#collapseThree')
+							| Meal Requests
+				#collapseThree.panel-collapse.collapse
+							.panel-body
+								table.meals-req-table.table
+									for request in mealsRequests
+										tr.request-header.info.table-striped
+											th.req.req-quantity Quantity Requested
+											th.req.req-contributed Request Contributions
+											th.req Comments
+											th.req.req-name Name
+											th.req.req-phone Phone#
+											th.req.req-email Email
+										tr.meals-request.table-striped
+											td.req.req-quantity= request.quantityRequested
+											td.req.req-contributed= request.totalContributed
+											td.req.req-comments= request.requestComments
+											td.req.req-name= request.fName + ' ' + request.lName
+											td.req.req-phone= request.phone
+											td.req.req-email= request.email
+										if request.contributions.length >0
+											tr.meals-request-contribution.success
+												th.empty
+												th.con.con-quantity Quantity Contributed
+												th.con.con-comments Comments
+												th.con.con-name Name
+												th.con.con-phone Phone#
+												th.con.con-email Email
+										for contrib in request.contributions
+													tr.meals-contribution.table-striped
+														td.empty
+														td.con.con-quantity= contrib.quantityContributed
+														td.con.con-comments= contrib.contributionComments
+														td.con.con-name= contrib.contributorFName + ' ' + contrib.contributorLName
+														td.con.con-phone= contrib.contributorPhone
+														td.con.con-email= contrib.contributorEmail
+			.panel.panel-default
+				.panel-heading
+					h4.panel-title
+						a(data-toggle='collapse', data-parent='#requests-table', href='#collapseFour')
+							| Pet Boarding Requests
+				#collapseFour.panel-collapse.collapse
+					.panel-body
+						table.pets-req-table.table
+							for request in petsRequests
+								tr.request-header.info.table-striped
+									th.req.req-quantity Quantity Requested
+									th.req.req-contributed Request Contributions
+									th.req Comments
+									th.req.req-name Name
+									th.req.req-phone Phone#
+									th.req.req-email Email
+								tr.pets-request.table-striped
+									td.req.req-quantity= request.quantityRequested
+									td.req.req-contributed= request.totalContributed
+									td.req.req-comments= request.requestComments
+									td.req.req-name= request.fName + ' ' + request.lName
+									td.req.req-phone= request.phone
+									td.req.req-email= request.email
+								if request.contributions.length >0
+									tr.pets-request-contribution.success
+										th.empty
+										th.con.con-quantity Quantity Contributed
+										th.con.con-comments Comments
+										th.con.con-name Name
+										th.con.con-phone Phone#
+										th.con.con-email Email
+								for contrib in request.contributions
+											tr.pets-contribution.table-striped
+												td.empty
+												td.con.con-quantity= contrib.quantityContributed
+												td.con.con-comments= contrib.contributionComments
+												td.con.con-name= contrib.contributorFName + ' ' + contrib.contributorLName
+												td.con.con-phone= contrib.contributorPhone
+												td.con.con-email= contrib.contributorEmail
+			.panel.panel-default
+				.panel-heading
+					h4.panel-title
+						a(data-toggle='collapse', data-parent='#requests-table', href='#collapseFive')
+							| Transportation Requests
+				#collapseFive.panel-collapse.collapse
+					.panel-body
+						table.transport-req-table.table
+							for request in transportRequests
+								tr.request-header.info.table-striped
+									th.req.req-quantity Quantity Requested
+									th.req.req-contributed Request Contributions
+									th.req Comments
+									th.req.req-name Name
+									th.req.req-phone Phone#
+									th.req.req-email Email
+								tr.transport-request.table-striped
+									td.req.req-quantity= request.quantityRequested
+									td.req.req-contributed= request.totalContributed
+									td.req.req-comments= request.requestComments
+									td.req.req-name= request.fName + ' ' + request.lName
+									td.req.req-phone= request.phone
+									td.req.req-email= request.email
+								if request.contributions.length >0
+									tr.transport-request-contribution.success
+										th.empty
+										th.con.con-quantity Quantity Contributed
+										th.con.con-comments Comments
+										th.con.con-name Name
+										th.con.con-phone Phone#
+										th.con.con-email Email
+								for contrib in request.contributions
+											tr.transport-contribution.table-striped
+												td.empty
+												td.con.con-quantity= contrib.quantityContributed
+												td.con.con-comments= contrib.contributionComments
+												td.con.con-name= contrib.contributorFName + ' ' + contrib.contributorLName
+												td.con.con-phone= contrib.contributorPhone
+												td.con.con-email= contrib.contributorEmail
+			.panel.panel-default
+				.panel-heading
+					h4.panel-title
+						a(data-toggle='collapse', data-parent='#requests-table', href='#collapseSix')
+							| Water Requests
+				#collapseSix.panel-collapse.collapse
+					.panel-body
+						table.meals-req-table.table
+							for request in waterRequests
+								tr.water-header.info.table-striped
+									th.req.req-quantity Quantity Requested
+									th.req.req-contributed Request Contributions
+									th.req Comments
+									th.req.req-name Name
+									th.req.req-phone Phone#
+									th.req.req-email Email
+								tr.water-request.table-striped
+									td.req.req-quantity= request.quantityRequested
+									td.req.req-contributed= request.totalContributed
+									td.req.req-comments= request.requestComments
+									td.req.req-name= request.fName + ' ' + request.lName
+									td.req.req-phone= request.phone
+									td.req.req-email= request.email
+								if request.contributions.length >0
+									tr.water-request-contribution.success
+										th.empty
+										th.con.con-quantity Quantity Contributed
+										th.con.con-comments Comments
+										th.con.con-name Name
+										th.con.con-phone Phone#
+										th.con.con-email Email
+								for contrib in request.contributions
+											tr.water-contribution.table-striped
+												td.empty
+												td.con.con-quantity= contrib.quantityContributed
+												td.con.con-comments= contrib.contributionComments
+												td.con.con-name= contrib.contributorFName + ' ' + contrib.contributorLName
+												td.con.con-phone= contrib.contributorPhone
+												td.con.con-email= contrib.contributorEmail
+
+
+
 script(src='http://code.jquery.com/jquery-2.1.1.min.js')
 script(src='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')
 script.

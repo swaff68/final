@@ -1,6 +1,6 @@
 var Request = require('../models/request.js')
-//var twilio = require("path/to/twilio-node/lib");
-// var Contribution = require('../models/contribute.js')
+// var twilio = require("path/to/twilio-node/lib");
+var Contribution = require('../models/contribute.js')
 
 var accountSid = 'ACa95b3f3758879b557dd75a2f33680c7d';
 var authToken = "10034e5971d871bf22b35c3f784430fa";
@@ -18,7 +18,7 @@ var sendMessage = function(request, contribution){
 		+ ' towards your '+ request.requestType + ' request.  '
 
 
-		+ "Here is a link to " + contribution.contributorFName + "'s " + 'contribution comments.  '
+		+ "Here is a link to " + contribution.contributorFName + "'s " + 'contribution comments.  ' + 
 
 		+ contribution.contributorFName + "'s  phone# is " + contribution.contributorPhone + '.  '
 
@@ -61,17 +61,82 @@ var sendMessage = function(request, contribution){
 		    process.stdout.write(message.sid);
 		});
 
-	console.log('sendMessage', request, contribution)
+// 	console.log('sendMessage', request, contribution)
 }
  
 
 var indexController = {
+
+	// urlMessage: function(req, res){
+	// 	console.log("req.query: ", req.query)
+	// 	Request.findOne({}, function(err, request){	
+
+			
+	// 		console.log("request: ", request);
+	// 		res.render('message',{
+	// 			request: request
+	// 		})
+	// 	})
+	// },
+
+
+
 	index: function(req, res) {
 
-		Request.find({}, function(err, docs){
-			// console.log(docs)
+		Request.find({}, function(err, requests){
+			var waterRequests = [];
+			var clothingRequests = [];
+			var petsRequests = [];
+			var mealsRequests = [];
+			var lodgeRequests = [];
+			var transportRequests = []; 
+
+			for (var i =0; i<requests.length; i++){
+				if(requests[i].requestType === 'water'){
+					waterRequests.push(requests[i])
+				}
+			}
+
+			for (var i =0; i<requests.length; i++){
+				if(requests[i].requestType === 'clothing'){
+					clothingRequests.push(requests[i])
+
+				}
+			}
+			for (var i =0; i<requests.length; i++){
+				if(requests[i].requestType === 'pets'){
+					petsRequests.push(requests[i])
+				}
+			}
+			for (var i =0; i<requests.length; i++){
+				if(requests[i].requestType === 'meals'){
+					mealsRequests.push(requests[i])
+				}
+			}
+			for (var i =0; i<requests.length; i++){
+				if(requests[i].requestType === 'lodging'){
+					lodgeRequests.push(requests[i])
+				}
+			}
+			for (var i =0; i<requests.length; i++){
+				if(requests[i].requestType === 'transportation'){
+					transportRequests.push(requests[i])
+				}
+			}
+				console.log(mealsRequests)
 			res.render('index', {
-				requests: docs				
+				transportRequests: transportRequests,
+				lodgeRequests: lodgeRequests,
+				mealsRequests: mealsRequests,
+				petsRequests: petsRequests,
+				clothingRequests: clothingRequests,
+				waterRequests: waterRequests,
+				requests: requests
+
+
+
+
+
 			})
 		})
 		
@@ -166,26 +231,38 @@ var indexController = {
 				if(docs[i].requestType==='pets' && docs[i].quantityRequested >0) {
 					requestResults.pets.requests+=1
 					requestResults.pets.quantity+= docs[i].quantityRequested
+					for (var k = 0; k < docs[i].contributions.length; k++) {
+						requestResults.pets.quantity-=docs[i].contributions[k].quantityContributed
+					};
 
 				}
 				if(docs[i].requestType==='lodging' && docs[i].quantityRequested >0) {
 					requestResults.lodge.requests+=1
 					requestResults.lodge.quantity+= docs[i].quantityRequested
+					for (var k = 0; k < docs[i].contributions.length; k++) {
+						requestResults.lodge.quantity-=docs[i].contributions[k].quantityContributed
+					};
 				}
 
 				if(docs[i].requestType==='meals' && docs[i].quantityRequested >0) {
 					requestResults.meals.requests+=1
 					requestResults.meals.quantity+= docs[i].quantityRequested
+					for (var k = 0; k < docs[i].contributions.length; k++) {
+						requestResults.meals.quantity-=docs[i].contributions[k].quantityContributed
+					};
 
 				}
 				if(docs[i].requestType==='transportation' && docs[i].quantityRequested >0) {
 					requestResults.transport.requests+=1
 					requestResults.transport.quantity+= docs[i].quantityRequested
+					for (var k = 0; k < docs[i].contributions.length; k++) {
+						requestResults.transport.quantity-=docs[i].contributions[k].quantityContributed
+					};
 				}
 
 				
 			};
-			// console.log(requestResults)
+
 			res.send(requestResults)
 		})
 
@@ -201,7 +278,7 @@ var indexController = {
 
 	aidSubmit: function(req, res){
 
-		// console.log(req.body.fName, req.body.lName, req.body.orgName, req.body.email , req.body.phone , req.body.address, req.body.lat, req.body.long, req.body.waterQuantity, req.body.waterComments, req.body.mealsQuantity, req.body.mealsComments, req.body.lodgeQuantity, req.body.lodgeComments, req.body.petsQuantity, req.body.petsComments, req.body.transportQuantity, req.body.transportComments, req.body.clothesQuantity, req.body.clothesComments)
+
 
 
 
@@ -250,7 +327,7 @@ var indexController = {
 					totalContributions += request.contributions[i].quantityContributed || 0 
 					};
 
-
+					request.totalContributed = totalContributions
 
 					if(totalContributions >= request.quantityRequested){
 						request.requestFullfilled = true

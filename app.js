@@ -17,6 +17,7 @@ app.get('/', indexController.index);
 app.get('/reliefStatus', indexController.reliefStatus);
 app.get('/reliefRequests', indexController.reliefRequests);
 app.get('/requestMarkers', indexController.requestMarkers);
+// app.get('/messageLink', indexController.urlMessage)
 
 app.post('/aidSubmit', indexController.aidSubmit);
 app.post('/contSubmit', indexController.contSubmit);

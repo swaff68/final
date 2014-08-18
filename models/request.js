@@ -7,29 +7,6 @@ var mongoose = require('mongoose')
 
 var Request = mongoose.model('Request', {
 	
-	// fName: String,
-	// lName: String,
-	// orgName: String,
-	// email: String,
-	// phone: String,
-	// address: String,
-	// lat: Number,
-	// long: Number,
-	// waterQuantity:Number,
-	// waterComments:String,
-	// mealsQuantity:Number,
-	// mealsComments:String,
-	// lodgeQuantity:Number,
-	// lodgeComments:String,
-	// petsQuantity:Number,
-	// petsComments:String,
-	// transportQuantity:Number,
-	// transportComments:String,
-	// clothesQuantity:Number,
-	// clothesComments:String,
-	// date: { type: Date, default: Date.now },
-
-
 
 	requestType: String,
 	quantityRequested: Number,
@@ -47,7 +24,8 @@ var Request = mongoose.model('Request', {
 		contributorOrgName: String,
 		contributorEmail: String,
 		contributorPhone: String,
-		dateContributed:{ type: Date, default: Date.now }
+		dateContributed:{ type: Date, default: Date.now },
+		url:String
 		}
 
 	],
@@ -61,7 +39,9 @@ var Request = mongoose.model('Request', {
 	lat: Number,
 	long: Number,
 	dateRequested: { type: Date, default: Date.now },
-	groupId: String
+	groupId: String,
+	totalContributed: {type: Number, default: 0},
+	url:String
 
 });
 

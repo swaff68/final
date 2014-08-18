@@ -137,9 +137,9 @@ margin-left: 5px;
 	height: 500px;
 }
 
-.row{
+/*.row{
 	border-bottom: 1px solid lightgrey;
-}
+}*/
 
 .chart-label{
 text-align: center;
@@ -208,6 +208,33 @@ text-align: left;
 	margin-left: 10px;
 	display: none;
 }
+#requests-table{
+	display: none;
+	margin-left: 20px;
+	margin-top: 20px;
+	width: 90%;
+}
+
+
+.req, .con{
+/*width: 100%;*/
+text-align: center;
+vertical-align: top;
+}
+
+
+.con-quantity{
+width:50px;
+}
+.req-quantity{
+	width: 100px;
+}
+
+.req-comments, .con-comments{
+	width: 300px;
+
+}
+
 
 
 

@@ -1,0 +1,38 @@
+.message-body
+	tr.request-header.info
+		th.req Request Comments
+		th.req.req-quantity Quantity Requested
+		th.req.req-name Requestor's Name
+		th.req.req-phone Requestor's Phone#
+		th.req.req-email Requestor's Email
+		tr.request-data
+			td.req.req-comments= request.requestComments
+			td.req.req-quantity= request.quantityRequested
+			td.req.req-name= request.fName + ' ' + request.lName
+			td.req.req-phone= request.phone
+			td.req.req-email= request.email
+
+		//- 	tr.request-contribution.success
+		//- 		th.empty
+		//- 		th.con.con-comments Contributor's  Comments
+		//- 		th.con.con-quantity Quantity Contributed
+		//- 		th.con.con-name Contributor's Name
+		//- 		th.con.con-phone Contributor's Phone#
+		//- 		th.con.con-email Contributor's Email
+		//- for contrib in request.contributions
+		//- 			tr.clothing-contribution
+		//- 				td.empty
+		//- 				td.con.con-comments= contrib.contributionComments
+		//- 				td.con.con-quantity= contrib.quantityContributed
+		//- 				td.con.con-name= contrib.contributorFName + ' ' + contrib.contributorLName
+		//- 				td.con.con-phone= contrib.contributorPhone
+		//- 				td.con.con-email= contrib.contributorEmail
+
+
+script(src='http://code.jquery.com/jquery-2.1.1.min.js')
+script(src='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')
+script.
+	var requests = !{JSON.stringify(requests)}
+script(src='scripts/charts.js')
+	
+include closingtags.html
