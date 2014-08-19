@@ -6,27 +6,47 @@ mongoose.connect('mongodb://localhost/nightingale', {}, function(){
 
 var dataModel = require('./models/request.js')
 
-// var seed:[
+var seed:[
 
-// 	{
+	{
 
-// 	requestType: String,
-// 	quantityRequested: Number,
-// 	requestComments: String,
-// 	fName: String,
-// 	lName: String,
-// 	orgName: String,
-// 	email: String,
-// 	phone: String,
-// 	address: String,
-// 	lat: Number,
-// 	long: Number,
-// 	dateRequested: { type: Date, default: Date.now },
-// 	groupId: String
+	requestType: String,
+	quantityRequested: Number,
+	requestComments: String,
+	requestFullfilled: {type: Boolean, default: false},
+	contributions: [ 
 
+		{
+		contGroupId: String,
+		contributionType:String,
+		quantityContributed: Number,
+		contributionComments: String,
+		contributorFName: String,
+		contributorLName: String,
+		contributorOrgName: String,
+		contributorEmail: String,
+		contributorPhone: String,
+		dateContributed:{ type: Date, default: Date.now },
+		url:String
+		}
 
-// 	}
-// 	]
+	]
+
+	fName: String,
+	lName: String,
+	orgName: String,
+	email: String,
+	phone: String,
+	address: String,
+	lat: Number,
+	long: Number,
+	dateRequested: { type: Date, default: Date.now },
+	groupId: String,
+	totalContributed: {type: Number, default: 0},
+	url:String
+
+	}
+	]
 
 
 Request.remove({}, function(){

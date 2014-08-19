@@ -18,7 +18,7 @@ var sendMessage = function(request, contribution){
 		+ ' towards your '+ request.requestType + ' request.  '
 
 
-		+ "Here is a link to " + contribution.contributorFName + "'s " + 'contribution comments.  ' + 
+		// + "Here is a link to " + contribution.contributorFName + "'s " + 'contribution comments.  '
 
 		+ contribution.contributorFName + "'s  phone# is " + contribution.contributorPhone + '.  '
 
@@ -32,7 +32,7 @@ var sendMessage = function(request, contribution){
 		+ ' contribution to '
 		+ request.fName + ' ' + request.lName + "'s " + request.requestType + ' request.  '
 
-		+ 'Here is a link to ' + request.fName + "'s " + 'aid request comments.  '
+		// + 'Here is a link to ' + request.fName + "'s " + 'aid request comments.  '
 
 		+ request.fName + "'s" + ' phone# is ' + request.phone + '.  '
 
