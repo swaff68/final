@@ -334,7 +334,7 @@ var indexController = {
 					}
 
 					request.save(function(error, result){
-						sendMessage(request, contribution);
+						// sendMessage(request, contribution);
 						// if(error){
 						// 	res.send(500, 'ERROR')
 						// }

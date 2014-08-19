@@ -68,8 +68,7 @@
 	$('#metricsBtn').on('click', function(){
 		$('#requestsByType').empty()
 		$('#requestsByType1').empty()
-		$('#requestsByType2').empty()
-		$('#myfirstchart').empty()
+
 
 		$('#metricsArea').toggle()
 	
@@ -77,7 +76,7 @@
 	 	new Morris.Donut({
 	 		element: 'requestsByType',
 	 		data: [
-	 		{label: "WaterRequests", value: waterRequests.length},
+	 		{label: "Water Requests", value: waterRequests.length},
 	 		{label: "Pets Requests", value: petsRequests.length},
 	 		{label: "Meals Requests", value: mealsRequests.length},
 	 		{label: "Clothing Requests", value: clothingRequests.length},
@@ -88,7 +87,7 @@
 	 	new Morris.Donut({
 	 		element: 'requestsByType1',
 	 		data: [
-	 		{label: "WaterRequests", value: totalWaterRequested},
+	 		{label: "Water Requests", value: totalWaterRequested},
 	 		{label: "Pets Requests", value: totalPetsRequested},
 	 		{label: "Meals Requests", value: totalMealsRequested},
 	 		{label: "Clothing Requests", value: totalClothesRequested},
