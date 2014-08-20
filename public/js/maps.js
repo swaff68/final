@@ -92,7 +92,7 @@ var geocoder;
 
 function initialize() {
   geocoder = new google.maps.Geocoder();
-  var boulder = new google.maps.LatLng(40.0457966, -105.1249414);
+  var boulder = new google.maps.LatLng(40.1545289, -104.989335);
   var mapOptions = {
     zoom: 10,
     center: boulder,

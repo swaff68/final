@@ -1,3 +1,4 @@
+// THIS IS FOR UPDATING THE RELIEF STATUS DASHBAORD
 var updateStatus = function(){
 		$.get('/reliefStatus', function(data){
 			$('.status-table').empty()
@@ -10,6 +11,8 @@ var updateStatus = function(){
 		};
 	})
 }
+
+// THIS SHOWS A RELIEF REQUEST BASED ON THE requestType THAT DISPLAYS IN THE CONTRIBUTION FORM
 var processReliefRequests = function(data){
 
 	$('.water-table, .meals-table, .lodge-table, .pets-table, .transport-table, .clothes-table').find("tr").not(".info").remove()
@@ -69,6 +72,8 @@ var processReliefRequests = function(data){
 
 
 		};
+
+		// THIS PROVIDES THE CONTRIBUTION ROWS FOR THE CONTRIBUTOR TO FILL OUT, THEY ARE ASSOCIATED WITH EACH AID REQUEST
 			$('.water-request-checkbox').on('change', function(){
 						var selRequest = '<tr class="success">' + '<th colspan="3" class="contResponseH">' + 'Quantity to Contribute?' + '</th>' + '<th colspan="3" class="contComments">' + 'Contribution Comments' + '</tr>' + '<tr class="contResponseD">' + '<td colspan="3">' +  '<input type="text" class="qc-text water-cont-quantity cont-quantity">' + '</td>' + '<td colspan="3">' + '<textarea class=" cc-text water-cont-comments cont-comments" rows="1">' + '</textarea>' + '</td>' + '</tr>'
 				if($(this).prop('checked')){
@@ -147,7 +152,9 @@ var processReliefRequests = function(data){
 			});
 		
 	}
+
 $(function(){
+	// THIS GETS THE RELIEF REQUESTS THAT GET SENT TO THE CONTRIBUTION FORM
 
 	$('#myModal1').on('show.bs.modal', function (e) {
 	$.get('/reliefRequests',processReliefRequests)
@@ -156,14 +163,16 @@ $(function(){
 	$.get('/reliefRequests',processReliefRequests) 
 	updateStatus()
 
-
+// THIS PUTS THE MAP BEFORE THE REQUESTS TABLE
 $('#map-canvas').before($('#requests-table'))
+
+// THIS TOGGLES THE RELIEF REQUESTS BUTTON WIHTIN THE SIDE NAVBAR
 
 $('#requestsBtn').on('click', function(){
 		$('#requests-table').toggle()
 	});
 
-
+// THIS IS THE CLIENTSIDE EVENTS WHEN THE REQUEST AID FORM IS SUBMITTED
 
 	$('#reqForm').on('submit', function(e){
 		e.preventDefault();
@@ -193,6 +202,8 @@ $('#requestsBtn').on('click', function(){
 		var transportComments = $('#transport-comments').val()
 		var clothesQuantity = $('#clothes-quantity').val()
 		var clothesComments = $('#clothes-comments').val()
+
+// THIS TELLS THE SYSTEM WHICH ICON TO USE BASED ON THE requestType
 
 		geocoder.geocode( { 'address': address}, function(results, status) {
 		  if (status == google.maps.GeocoderStatus.OK) {
@@ -246,21 +257,21 @@ $('#requestsBtn').on('click', function(){
 
 		    }
 
-		    // var marker = new google.maps.Marker({
-		    //     map: map,
-		    //     icon: image,
-		    //     position: results[0].geometry.location
-		    // });
-		    console.log(results)
+
 
 		    var latLong = {lat:results[0].geometry.location.lat(), lng:results[0].geometry.location.lng()}
 
 
 		    var groupId = (+new Date()).toString(36)
 
+
+// THIS SENDS AN AID REQUEST TO THE SERVER BASED UPON THE requestType
+
 		    if(water === true){
 		    	$.post('/aidSubmit', {fName: fName, lName: lName, orgName: orgName, email: email, phone: phone, address: address, lat: latLong.lat,long: latLong.lng,requestType: 'water', quantityRequested: waterQuantity, requestComments: waterComments, groupId:groupId}, function(data)
 		    		{
+
+// THIS UPDATES THE RELIEF STATUS DASHBAORD WITHIN THE DOM AFTER AN AID REQUEST MESSAGE IS SENT TO THE SERVER
 		    		var originalVal = $('.water .curReq').text()
 		    		originalVal = +originalVal+1
 		    		$('.water .curReq').text(originalVal)
@@ -370,6 +381,7 @@ $('#requestsBtn').on('click', function(){
 
 	})	
 
+// THIS WILL SHOW OR HIDE THE REQUEST AID TYPE ASSOCIATED FIELDS WIHTIN THE REQUEST AID FORM
 
 	$('.checkbox label input').on('change', function(){
 		if ($(this).prop('checked')===true) {
@@ -383,9 +395,12 @@ $('#requestsBtn').on('click', function(){
 
 	});
 
+
+// THESE ARE THE CLIENTSIDE EVENTS THAT HAPPEN AFTER A CONTRIBUTION FORM IS SUBMITTED
+
 	$('#contForm').on('submit', function(e){
 		e.preventDefault();
-		// console.log('test cont');
+
 
 		var fName = $('#first-name-cont').val()
 		var lName = $('#last-name-cont').val()

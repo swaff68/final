@@ -9,7 +9,7 @@ var client = require('twilio')(accountSid, authToken);
 
 var sendMessage = function(request, contribution){
 
-
+// TWILIO MESSAGE
 	var requestorMessage = 
 		  'Message from Nightingale Relief Assistance Team, - '
 		+ request.fName + ', ' + 'good news!  '
@@ -44,7 +44,6 @@ var sendMessage = function(request, contribution){
 	client.messages.create({
 		    body: requestorMessage,
 		    to: request.phone,
-		    // request.phone
 		    from: "7033489714"
 		}, function(err, message) {
 		    console.log('err:' ,err)
@@ -55,33 +54,24 @@ var sendMessage = function(request, contribution){
 	client.messages.create({
 		    body: contributorMessage,
 		    to: contribution.contributorPhone,
-		    // contribution.contributorPhone
 		    from: "7033489714"
 		}, function(err, message) {
 		    process.stdout.write(message.sid);
 		});
 
-// 	console.log('sendMessage', request, contribution)
+
 }
  
 
 var indexController = {
 
-	// urlMessage: function(req, res){
-	// 	console.log("req.query: ", req.query)
-	// 	Request.findOne({}, function(err, request){	
 
-			
-	// 		console.log("request: ", request);
-	// 		res.render('message',{
-	// 			request: request
-	// 		})
-	// 	})
-	// },
 
 
 
 	index: function(req, res) {
+
+		// FINDS DOCS FOR THE RELIEF REQUESTS TABLE
 
 		Request.find({}, function(err, requests){
 			var waterRequests = [];
@@ -142,7 +132,7 @@ var indexController = {
 		
 	},
 
-
+// PUTS MAP MARKERS FOR REQUESTS STILL OUTSTANDING
 	requestMarkers: function(req, res){
 
 		Request.find({requestFullfilled: false}, function(err, docs){
@@ -153,9 +143,9 @@ var indexController = {
 
 	},
 
-
+// THIS IS THE RELIEF STATUS AREA OBJECT MODEL
 	reliefStatus: function(req, res){
-		// console.log("Request called");
+
 		var requestResults = {
 			clothes :{
 				displayName: "Clothing",
@@ -203,7 +193,7 @@ var indexController = {
 
 
 
-
+// THIS SEARCHES ALL REQUESTS IN DB AND PREPARES INFO FOR THE RELIEF STATUS DASHBAORD
 		}
 		Request.find({requestFullfilled: false}, function(err, docs){
 
@@ -269,13 +259,14 @@ var indexController = {
 
 	},
 
-
+// SEARCHES FOR JUST UNFULLFILLED RELIEF REQUESTS TO UPDATE THE RELIEF STATUS DASHBAORD
 	reliefRequests:function(req, res){
 		Request.find({requestFullfilled: false},function(err, docs){
 			res.send(docs)
 		})
 	},
 
+// POSTS NEW AID REQUESTS TO THE DB
 	aidSubmit: function(req, res){
 
 
@@ -303,6 +294,7 @@ var indexController = {
 
 	},
 
+// HAS ALL OF THE EVENTS WHEN A CONTRIBUTION IS SUBMITTED
 	contSubmit: function(req, res){
 
 

@@ -137,9 +137,6 @@ margin-left: 5px;
 	height: 500px;
 }
 
-/*.row{
-	border-bottom: 1px solid lightgrey;
-}*/
 .panel-body{
 	max-height: 400px; 
 	overflow: scroll;
@@ -238,7 +235,3 @@ width:50px;
 	width: 300px;
 
 }
-
-
-
-
