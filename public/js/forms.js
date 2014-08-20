@@ -75,7 +75,7 @@ var processReliefRequests = function(data){
 
 		// THIS PROVIDES THE CONTRIBUTION ROWS FOR THE CONTRIBUTOR TO FILL OUT, THEY ARE ASSOCIATED WITH EACH AID REQUEST
 			$('.water-request-checkbox').on('change', function(){
-						var selRequest = '<tr class="success">' + '<th colspan="3" class="contResponseH">' + 'Quantity to Contribute?' + '</th>' + '<th colspan="3" class="contComments">' + 'Contribution Comments' + '</tr>' + '<tr class="contResponseD">' + '<td colspan="3">' +  '<input type="text" class="qc-text water-cont-quantity cont-quantity">' + '</td>' + '<td colspan="3">' + '<textarea class=" cc-text water-cont-comments cont-comments" rows="1">' + '</textarea>' + '</td>' + '</tr>'
+						var selRequest = '<tr class="success">' + '<th colspan="3" class="contResponseH">' + 'Quantity to Contribute?' + '</th>' + '<th colspan="3" class="contComments">' + 'Contribution Comments' + '</tr>' + '<tr class="contResponseD">' + '<td colspan="3">' +  '<input type="text" class="qc-text water-cont-quantity cont-quantity">' + '</td>' + '<td colspan="3">' + '<textarea class=" cc-text water-cont-comments cont-comments" rows="1">'+ 'I will call you to discuss the details.' + '</textarea>' + '</td>' + '</tr>'
 				if($(this).prop('checked')){
 					$(this).closest('tr').after(selRequest);
 						
@@ -90,7 +90,7 @@ var processReliefRequests = function(data){
 		
 		
 			$('.meals-request-checkbox').on('change', function(){
-						var selRequest = '<tr class="success">' + '<th colspan="3" class="contResponseH">' + 'Quantity to Contribute?' + '</th>' + '<th colspan="3" class="contComments">' + 'Contribution Comments' + '</tr>' + '<tr class="contResponseD">' + '<td colspan="3">' +  '<input type="text" class="qc-text meals-cont-quantity cont-quantity">' + '</td>' + '<td colspan="3">' + '<textarea class=" cc-text meals-cont-comments cont-comments" rows="1">' + '</textarea>' + '</td>' + '</tr>'
+						var selRequest = '<tr class="success">' + '<th colspan="3" class="contResponseH">' + 'Quantity to Contribute?' + '</th>' + '<th colspan="3" class="contComments">' + 'Contribution Comments' + '</tr>' + '<tr class="contResponseD">' + '<td colspan="3">' +  '<input type="text" class="qc-text meals-cont-quantity cont-quantity">' + '</td>' + '<td colspan="3">' + '<textarea class=" cc-text meals-cont-comments cont-comments" rows="1">' + 'I will call you to discuss the details.' + '</textarea>' + '</td>' + '</tr>'
 				if($(this).prop('checked')){
 					$(this).closest('tr').after(selRequest);
 						
@@ -102,7 +102,7 @@ var processReliefRequests = function(data){
 			});
 
 			$('.pets-request-checkbox').on('change', function(){
-						var selRequest = '<tr class="success">' + '<th colspan="3" class="contResponseH">' + 'Quantity to Contribute?' + '</th>' + '<th colspan="3" class="contComments">' + 'Contribution Comments' + '</tr>' + '<tr class="contResponseD">' + '<td colspan="3">' +  '<input type="text" class=" qc-text pets-cont-quantity cont-quantity">' + '</td>' + '<td colspan="3">' + '<textarea class=" cc-text pets-cont-comments cont-comments" rows="1">' + '</textarea>' + '</td>' + '</tr>'
+						var selRequest = '<tr class="success">' + '<th colspan="3" class="contResponseH">' + 'Quantity to Contribute?' + '</th>' + '<th colspan="3" class="contComments">' + 'Contribution Comments' + '</tr>' + '<tr class="contResponseD">' + '<td colspan="3">' +  '<input type="text" class=" qc-text pets-cont-quantity cont-quantity">' + '</td>' + '<td colspan="3">' + '<textarea class=" cc-text pets-cont-comments cont-comments" rows="1">' + 'I will call you to discuss the details.' + '</textarea>' + '</td>' + '</tr>'
 				if($(this).prop('checked')){
 					$(this).closest('tr').after(selRequest);
 						
@@ -116,7 +116,7 @@ var processReliefRequests = function(data){
 
 
 			$('.lodge-request-checkbox').on('change', function(){
-						var selRequest = '<tr class="success">' + '<th colspan="3" class="contResponseH">' + 'Quantity to Contribute?' + '</th>' + '<th colspan="3" class="contComments">' + 'Contribution Comments' + '</tr>' + '<tr class="contResponseD">' + '<td colspan="3">' +  '<input type="text" class="qc-text lodge-cont-quantity cont-quantity">' + '</td>' + '<td colspan="3">' + '<textarea class=" cc-text lodge-cont-comments cont-comments" rows="1">' + '</textarea>' + '</td>' + '</tr>'
+						var selRequest = '<tr class="success">' + '<th colspan="3" class="contResponseH">' + 'Quantity to Contribute?' + '</th>' + '<th colspan="3" class="contComments">' + 'Contribution Comments' + '</tr>' + '<tr class="contResponseD">' + '<td colspan="3">' +  '<input type="text" class="qc-text lodge-cont-quantity cont-quantity">' + '</td>' + '<td colspan="3">' + '<textarea class=" cc-text lodge-cont-comments cont-comments" rows="1">' + 'I will call you to discuss the details.' + '</textarea>' + '</td>' + '</tr>'
 				if($(this).prop('checked')){
 					$(this).closest('tr').after(selRequest);
 						
@@ -128,7 +128,7 @@ var processReliefRequests = function(data){
 			});
 
 			$('.transport-request-checkbox').on('change', function(){
-						var selRequest = '<tr class="success">' + '<th colspan="3" class="contResponseH">' + 'Quantity to Contribute?' + '</th>' + '<th colspan="3" class="contComments">' + 'Contribution Comments' + '</tr>' + '<tr class="contResponseD">' + '<td colspan="3">' +  '<input type="text" class=" qc-text transport-cont-quantity cont-quantity">' + '</td>' + '<td colspan="3">' + '<textarea class=" cc-text transport-cont-comments cont-comments" rows="1">' + '</textarea>' + '</td>' + '</tr>'
+						var selRequest = '<tr class="success">' + '<th colspan="3" class="contResponseH">' + 'Quantity to Contribute?' + '</th>' + '<th colspan="3" class="contComments">' + 'Contribution Comments' + '</tr>' + '<tr class="contResponseD">' + '<td colspan="3">' +  '<input type="text" class=" qc-text transport-cont-quantity cont-quantity">' + '</td>' + '<td colspan="3">' + '<textarea class=" cc-text transport-cont-comments cont-comments" rows="1">' + 'I will call you to discuss the details.' + '</textarea>' + '</td>' + '</tr>'
 				if($(this).prop('checked')){
 					$(this).closest('tr').after(selRequest);
 						
@@ -140,7 +140,7 @@ var processReliefRequests = function(data){
 			});
 
 			$('.clothes-request-checkbox').on('change', function(){
-						var selRequest = '<tr class="success">' + '<th colspan="3" class="contResponseH">' + 'Quantity to Contribute?' + '</th>' + '<th colspan="3" class="contComments">' + 'Contribution Comments' + '</tr>' + '<tr class="contResponseD">' + '<td colspan="3">' +  '<input type="text" class=" qc-text clothes-cont-quantity cont-quantity">' + '</td>' + '<td colspan="3">' + '<textarea class=" cc-text clothes-cont-comments cont-comments" rows="1">' + '</textarea>' + '</td>' + '</tr>'
+						var selRequest = '<tr class="success">' + '<th colspan="3" class="contResponseH">' + 'Quantity to Contribute?' + '</th>' + '<th colspan="3" class="contComments">' + 'Contribution Comments' + '</tr>' + '<tr class="contResponseD">' + '<td colspan="3">' +  '<input type="text" class=" qc-text clothes-cont-quantity cont-quantity">' + '</td>' + '<td colspan="3">' + '<textarea class=" cc-text clothes-cont-comments cont-comments" rows="1">' + 'I will call you to discuss the details.' + '</textarea>' + '</td>' + '</tr>'
 				if($(this).prop('checked')){
 					$(this).closest('tr').after(selRequest);
 						
