@@ -170,7 +170,7 @@ var indexController = {
 			},
 			pets :{
 
-				displayName: "Pet Boarding",
+				displayName: "Pets",
 				id: 'pet-boarding',
 				icon:  " fa fa-paw fa-icon",
 				requests : 0,
@@ -184,7 +184,7 @@ var indexController = {
 				quantity: 0
 			},
 			water :{
-				displayName: "Bottles of Water",
+				displayName: "Water",
 				id: 'water',
 				icon:  " fa fa-tint fa-icon",
 				requests : 0,
